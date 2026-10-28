@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="robots" content="noindex,nofollow"><meta name="app-version" content="v5.3-98a7da3a"><meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex,nofollow"><meta name="app-version" content="v5.1-84c0d894"><meta name="referrer" content="no-referrer">
 <title>حضوري | متابعة الانضباط الوظيفي</title>
 <style>
 :root{--bg:#F5F6F8;--card:#fff;--line:#E9ECF1;--tx:#0F1B33;--mu:#5B6577;--mu2:#7F8999;--navy:#0A1B3F;--navy2:#132A5C;--navy3:#1D3A78;--blue:#1D3A78;--gold:#C8A24A;--gold2:#E6CE8F;--gold3:#FBF7EC;--green:#1F7A4D;--orange:#9A6200;--red:#A83A33;--purple:#5B4A9A;--gray:#C9CFD9;--soft:#F5F6F8}
@@ -197,7 +197,7 @@ details summary{cursor:pointer;font-weight:600;min-height:32px}
 <aside class="side" aria-label="التنقل">
   <div class="logo"><i>ح</i><div><b>حضوري</b><small>متابعة الانضباط الوظيفي</small></div></div>
   <nav class="snav" id="tabs"></nav>
-  <div class="sfoot">الإدارة العامة للتعليم بمنطقة نجران<br>إدارة أداء التعليم · قسم الإشراف التربوي<br><span style="color:var(--gold2)">الإصدار v5.3-98a7da3a</span></div>
+  <div class="sfoot">الإدارة العامة للتعليم بمنطقة نجران<br>إدارة أداء التعليم · قسم الإشراف التربوي<br><span style="color:var(--gold2)">الإصدار v5.1-84c0d894</span></div>
 </aside>
 <div class="shell">
 <header class="top"><div class="in">
@@ -274,7 +274,7 @@ details summary{cursor:pointer;font-weight:600;min-height:32px}
         <label class="btn" style="width:100%">اختيار ملف Excel أو CSV<input type="file" id="imp-file" accept=".xlsx,.csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,text/csv,text/comma-separated-values" multiple class="vh"></label>
         <p class="sub" style="margin:6px 0 0">على الآيفون يُختار الملف من تطبيق «الملفات» أو iCloud Drive أو مرفق محفوظ.</p><div id="imp-env"></div>
         <div id="imp-prev" style="margin-top:12px"></div></div>
-      <div class="card c6"><h3>إصدار التقارير</h3><p class="sub">يُعرض التقرير داخل اللوحة، ويُجهَّز منه ملف PDF حقيقي يُحفظ أو يُشارك مباشرة</p>
+      <div class="card c6"><h3>إصدار التقارير</h3><p class="sub">التقرير يُفتح في صفحة مستقلة، ثم «حفظ بصيغة PDF» من نافذة الطباعة</p>
         <div class="fm"><label>تقرير المدير (كل أسبوعين) — نهاية الفترة<input type="date" id="r-end"></label></div>
         <div class="btns" style="margin-top:10px"><button class="btn" id="r-mgr">تقرير المدير الشامل PDF</button></div>
         <hr class="s"><div class="fm"><label>التقرير الفردي<select id="r-emp"></select></label></div>
@@ -298,13 +298,13 @@ details summary{cursor:pointer;font-weight:600;min-height:32px}
         <hr class="s"><div class="warn" id="test-zone"></div></div>
     </div>
   </section>
-  <p class="foot">الإصدار <span class="num">v5.3-98a7da3a</span> · الدوام 7:00–3:00 · المطلوب 420 دقيقة يوميًا · لا يُحتسب ما قبل 7:00 ولا ما بعد 3:00 · التأخر يُرصد من بعد 7:00 · الحساب بالدقائق ثم الساعات ثم النسبة ثم الأيام المكافئة (420 د = يوم) · لا جزاءات تلقائية</p>
+  <p class="foot">الإصدار <span class="num">v5.1-84c0d894</span> · الدوام 7:00–3:00 · المطلوب 420 دقيقة يوميًا · لا يُحتسب ما قبل 7:00 ولا ما بعد 3:00 · التأخر يُرصد من بعد 7:00 · الحساب بالدقائق ثم الساعات ثم النسبة ثم الأيام المكافئة (420 د = يوم) · لا جزاءات تلقائية</p>
 </main>
 </div>
 <nav class="bnav" id="bnav"></nav>
 <div class="modal" id="modal"><div class="sheet" role="dialog" aria-modal="true"><div class="hd"><h3 id="m-t"></h3><button class="x" id="m-x" aria-label="إغلاق">✕</button></div><div id="m-b"></div></div></div>
 <div class="modal ask" id="ask"><div class="sheet" role="alertdialog" aria-modal="true" style="max-width:460px"><p id="ask-t" style="white-space:pre-line;font-size:15px;margin:4px 0 16px"></p><div class="btns"><button class="btn" id="ask-ok">تأكيد</button><button class="btn s" id="ask-no">إلغاء</button></div></div></div>
-<div class="rv" id="rv"><div class="rvb"><b id="rv-t"></b><div class="btns"><button class="btn" id="rv-p" disabled>حفظ PDF</button><button class="btn s" id="rv-s" disabled>مشاركة PDF</button><button class="btn s" id="rv-o" disabled>طباعة</button><button class="btn s" id="rv-x">إغلاق ✕</button></div><small id="rv-st" style="width:100%;opacity:.8"></small></div><div class="rvw"><iframe id="rv-f" title="التقرير"></iframe></div></div>
+<div class="rv" id="rv"><div class="rvb"><b id="rv-t"></b><div class="btns"><button class="btn" id="rv-p">حفظ PDF / طباعة</button><button class="btn s" id="rv-s">مشاركة</button><button class="btn s" id="rv-o">فتح في صفحة مستقلة</button><button class="btn s" id="rv-x">إغلاق ✕</button></div></div><div class="rvw"><iframe id="rv-f" title="التقرير"></iframe></div></div>
 <div class="toast" id="toast"></div>
 <script>/* حضوري — محرك الحساب (دقائق صحيحة فقط) */
 (function (root) {
@@ -1363,7 +1363,7 @@ function drawData() {
   const used = JSON.stringify(DB).length + JSON.stringify(SNAPS).length;
   $('#bk-last').textContent = DB.settings.lastBackup ? 'آخر نسخة احتياطية: ' + new Date(DB.settings.lastBackup).toLocaleString('ar-SA-u-ca-gregory-nu-latn', { dateStyle: 'medium', timeStyle: 'short' }) : 'لم تُحفظ نسخة احتياطية بعد على هذا الجهاز.';
   const MODE = { idb: 'قاعدة بيانات المتصفح (IndexedDB) مع نسخة في التخزين المحلي', ls: 'التخزين المحلي للمتصفح (localStorage)', memory: 'ذاكرة مؤقتة فقط — الحفظ غير متاح في هذا العرض' };
-  $('#store-info').innerHTML = `<b>رقم الإصدار:</b> <span class="num">v5.3-98a7da3a</span> (التصميم الكحلي والذهبي · التأخر من 7:00 · التكرار 5 مرات)<br><b>طريقة الحفظ الحالية:</b> ${esc(MODE[STORE.mode])}${STORE.persist ? ' · محمية من المسح التلقائي' : ''}.<br><b>مكان الحفظ:</b> داخل هذا المتصفح على هذا الجهاز فقط. لا تُرفع أي بيانات إلى خادم أو خدمة خارجية، ولا يوجد رابط عام.<br>
+  $('#store-info').innerHTML = `<b>رقم الإصدار:</b> <span class="num">v5.1-84c0d894</span> (التصميم الكحلي والذهبي · التأخر من 7:00 · التكرار 5 مرات)<br><b>طريقة الحفظ الحالية:</b> ${esc(MODE[STORE.mode])}${STORE.persist ? ' · محمية من المسح التلقائي' : ''}.<br><b>مكان الحفظ:</b> داخل هذا المتصفح على هذا الجهاز فقط. لا تُرفع أي بيانات إلى خادم أو خدمة خارجية، ولا يوجد رابط عام.<br>
   <b>الحجم الحالي:</b> ${N((used / 1024).toFixed(0) + ' ك.ب')} · ${Object.keys(DB.punches).length} بصمة · ${DB.entries.filter((e) => !e.deleted).length} استئذان/مهمة · ${DB.notes.length} ملاحظة.${saveOk ? '' : '<br><b style="color:#B91C1C">تعذّر الحفظ في المتصفح — نزّل نسخة احتياطية.</b>'}<br>
   <b>تنبيه:</b> مسح بيانات المتصفح أو استخدام نافذة خاصة أو متصفح آخر يعني عدم ظهور البيانات. على الآيفون: التطبيق المضاف للشاشة الرئيسية وSafari لكلٍّ منهما بيانات منفصلة. لذلك نزّل «نسخة احتياطية كاملة» بعد كل استيراد أسبوعي واحفظها في مجلد خاص (مثل iCloud أو ذاكرة خارجية).<br>
   <b>الاستعادة:</b> «استعادة من نسخة احتياطية» تعرض ملخص الملف وتطلب التأكيد، وتُحفظ النسخة الحالية قبلها.<br>
@@ -1386,11 +1386,7 @@ function staffForm(e) {
       if (isNew) { e.key = e.id || 'n:' + nm; if (EMP[e.key]) return toast('الموظف موجود'); DB.employees.push(e); } save(); refresh(); drawData(); closeModal(); };
   });
 }
-/* ---------- التقارير: محتوى واحد يُعرض HTML ويُصدَّر PDF حقيقيًا ---------- */
-/* يُبنى كل تقرير على شكل «كتل» (عنوان، حلقات، بطاقات، جداول، تقويم...)، ثم:
-   - blocksToHtml: للعرض داخل اللوحة.
-   - blocksToPdf: رسم الكتل نفسها على صفحات A4 داخل المتصفح (Canvas يدعم العربية واتجاه RTL)
-     ثم تجميعها في ملف PDF بلا مكتبات خارجية ولا اتصال بالإنترنت. */
+/* ---------- التقارير ---------- */
 const RCSS = `*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"SF Arabic","Segoe UI",Tahoma,"Noto Sans Arabic","DejaVu Sans",sans-serif;color:#0F1B33;background:#fff;font-size:12.5px;line-height:1.55;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .pg{padding:14mm 12mm;page-break-after:always}.pg:last-child{page-break-after:auto}
 .hdr{background:#0A1B3F;color:#fff;border-radius:16px;padding:16px 20px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;border-bottom:3px solid #C8A24A}.hdr h1{margin:0;font-size:19px}.hdr p{margin:2px 0 0;opacity:.78;font-size:11.5px}
@@ -1399,280 +1395,108 @@ const RCSS = `*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"S
 h2{font-size:14.5px;margin:16px 0 6px;color:#0A1B3F;border-bottom:2px solid #E6CE8F;padding-bottom:4px}
 table{width:100%;border-collapse:collapse;font-size:11px}th{background:#F5F6F8;color:#334155;text-align:right;padding:6px;font-weight:600}td{padding:6px;border-bottom:1px solid #EEF0F4;vertical-align:top}tr{break-inside:avoid}
 .num{direction:ltr;unicode-bidi:isolate;display:inline-block}.r{color:#A83A33;font-weight:700}.o{color:#9A6200}.gr{color:#1F7A4D}.pu{color:#5B4A9A}
-.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}.cal div{border-radius:6px;padding:3px;text-align:center;font-size:10px;min-height:34px;border:1px solid #E9ECF1}.cal .h{border:0;color:#7F8999;min-height:0}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}.cal div{border-radius:6px;padding:3px;text-align:center;font-size:10px;min-height:34px;border:1px solid #E9ECF1}.cal .h{border:0;color:#7F8999}
 .k-ok{background:#EAF5EF}.k-short,.k-absent{background:#FBEFEE}.k-auto,.k-invalid,.k-rev{background:#FBF4E6}.k-mission{background:#F0EEF8}.k-perm{background:#EEF1F7}.k-off,.k-holiday,.k-leave{background:#F5F6F8;color:#7F8999}
-.sum{background:#FBF7EC;border:1px solid #EADBB0;border-radius:12px;padding:10px 14px;font-size:12.5px}.sum.gray{background:#F5F6F8;border-color:#E9ECF1}.bar{height:9px;background:#EEF0F4;border-radius:5px;overflow:hidden;display:flex}.bar i{display:block;height:100%}
+.sum{background:#FBF7EC;border:1px solid #EADBB0;border-radius:12px;padding:10px 14px;font-size:12.5px}.bar{height:9px;background:#EEF0F4;border-radius:5px;overflow:hidden;display:flex}.bar i{display:block;height:100%}
 .case{border:1px solid #E9ECF1;border-radius:10px;padding:8px 10px;margin:6px 0;break-inside:avoid}.case b{display:block}.case small{color:#7F8999}
-.tst{background:#C8A24A;color:#2B1F04;padding:6px 10px;border-radius:8px;font-weight:700;margin:8px 0 0}.sm{font-size:10.5px;color:#7F8999}
+.tb{position:sticky;top:0;background:#0A1B3F;color:#fff;padding:10px;text-align:center;font-size:14px;border-bottom:2px solid #C8A24A}.tb button{font:inherit;padding:8px 18px;border-radius:10px;border:0;background:#C8A24A;color:#2B1F04;font-weight:700;margin:0 4px;cursor:pointer}
 @media(max-width:700px){.g{grid-template-columns:repeat(2,1fr)}.pg{padding:12px}}
-@media print{@page{size:A4;margin:0}}`;
+@media print{.tb{display:none}@page{size:A4;margin:0}}`;
 const ringS = (p, c, sz, t, s) => ring(p, c, sz, t, s).replace('fill="currentColor"', 'fill="#0F1B33"').replace('fill="currentColor"', 'fill="#7F8999"');
+function calHtml(days, m) {
+  const [y, mo] = m.split('-').map(Number), n = new Date(Date.UTC(y, mo, 0)).getUTCDate(), off = H.dow(m + '-01'), map = {}; days.forEach((d) => { if (d.month === m) map[d.date] = d; });
+  let h = `<div style="font-weight:700;margin:6px 0">${H.MN[mo - 1]} ${y}</div><div class="cal">` + ['أحد', 'اثن', 'ثلا', 'أرب', 'خمي', 'جمع', 'سبت'].map((x) => `<div class="h">${x}</div>`).join('') + '<div style="border:0"></div>'.repeat(off);
+  for (let i = 1; i <= n; i++) { const d = map[m + '-' + String(i).padStart(2, '0')]; h += d ? `<div class="k-${d.review && d.kind === 'ok' ? 'rev' : d.kind}"><b>${i}</b><br>${KSYM[d.kind]}${d.unjust && d.kind !== 'absent' ? ' ' + esc(fm(d.unjust)) : ''}</div>` : `<div style="color:#CBD5E1">${i}</div>`; }
+  return h + '</div>';
+}
+function wrapReport(title, body) {
+  return `<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>${esc(title)}</title><style>${RCSS}</style></head><body><div class="tb">${esc(title)} <button onclick="print()">حفظ PDF / طباعة</button></div>${body}</body></html>`;
+}
+function head(t, sub) { return `<div class="hdr"><div><h1>${esc(t)}</h1><p>الإدارة العامة للتعليم بمنطقة نجران – إدارة أداء التعليم – قسم الإشراف التربوي</p></div><div style="text-align:left"><p>${esc(sub)}</p><p>تاريخ الإصدار: ${esc(H.dmy(today()))}</p></div></div>${DB.settings.test ? '<p style="background:#C8A24A;color:#2B1F04;padding:6px 10px;border-radius:8px;font-weight:700">بيانات اختبار مجهولة — ليست نتائج حقيقية</p>' : ''}`; }
 const pr = (r) => H.dmy(r.from) + ' – ' + H.dmy(r.to);
-const dLong = (d) => +d.slice(8) + ' ' + H.MN[+d.slice(5, 7) - 1] + ' ' + d.slice(0, 4);
-const prL = (r) => 'من ' + dLong(r.from) + ' إلى ' + dLong(r.to);
-const prI = (r) => iso(H.dmy(r.from)) + ' – ' + iso(H.dmy(r.to));
-function clampR(r) { const ds = DAYS.filter((d) => inR(d, r) && d.kind !== 'off' && d.kind !== 'holiday').map((d) => d.date).sort(); return ds.length ? { from: ds[0] < r.from ? r.from : ds[0], to: ds[ds.length - 1] } : r; }
+function clampR(r) { const ds = DAYS.filter((d) => inR(d, r)).map((d) => d.date).sort(); return ds.length ? { from: ds[0] < r.from ? r.from : ds[0], to: ds[ds.length - 1] } : r; }
 const RULES = 'الدوام 7:00–3:00 · المطلوب 420 د يوميًا · لا يُحتسب ما قبل 7:00 ولا ما بعد 3:00 · التأخر يُرصد من بعد 7:00 مستقلًا عن الفاقد · الفاقد يُعرض دون أيام الغياب، والغياب بالأيام، ونسبة الانضباط تشمل الاثنين · الانصراف التلقائي يُحتسب 210 د ويُراجع · اليوم المكافئ 420 د · لا يتضمن التقرير أي جزاء أو حسم تلقائي.';
-const LRI = '⁦', PDI = '⁩', iso = (x) => LRI + x + PDI; // عزل الأرقام والمعادلات داخل النص العربي
-const tm = (m) => H.hhmm(m) || '—';
-/* ---- بناء الكتل ---- */
-const workDaysIn = (D) => new Set(D.filter((d) => d.kind !== 'off' && d.kind !== 'holiday').map((d) => d.date)).size;
-/** حالات المراجعة في التقرير: تُعرض بما يقع داخل الفترة فقط، مع الإشارة إلى إجمالي الشهر عند الحاجة */
-function reportCases(cases, forEmp, r, D) {
-  const inr = (x) => x >= r.from && x <= r.to, items = [];
-  cases.forEach((c) => {
-    const M = MNm(c.month), nm = forEmp ? '' : empName(c.emp) + ' — ', E = D.filter((d) => d.emp === c.emp);
-    const foot = c.done ? 'عولجت' : 'حالة للمراجعة الإدارية — ليست جزاءً ولا حسمًا تلقائيًا', cls = c.done ? 'gr' : c.type === 'loss' || c.type === 'absence' ? 'r' : 'o', mk = (t, d) => items.push({ title: (c.done ? '✓ ' : '') + t, desc: d, foot, cls });
-    if (c.type === 'auto') { if (inr(c.date)) mk(nm + 'انصراف تلقائي يوم ' + H.dm(c.date), caseText(c, forEmp)[3]); return; }
-    if (c.type === 'invalid' || c.type === 'pend') { const ds = c.dates.filter(inr); if (ds.length) { const cc = { ...c, dates: ds }; mk(caseText(cc, forEmp)[2], caseText(cc, forEmp)[3]); } return; }
-    if (c.type === 'late' || c.type === 'early') { const k = c.type === 'late' ? 'lateNet' : 'earlyNet', L = E.filter((d) => d[k] > 0); if (!L.length) return;
-      mk(nm + (c.type === 'late' ? 'تأخر متكرر بعد 7:00' : 'خروج مبكر متكرر'), `${L.length} مرة خلال الفترة بمجموع ${fm(L.reduce((s, d) => s + d[k], 0))}: ${L.map((d) => H.dm(d.date)).join('، ')}. إجمالي ${M}: ${c.value} مرة (بلغ حد التكرار الشهري).`); return; }
-    if (c.type === 'loss') { const x = H.agg(E).loss; if (!x) return; mk(nm + 'فاقد غير مبرر تجاوز 7 ساعات في ' + M, `الفاقد خلال الفترة ${fm(x)} (${x} د). إجمالي ${M} ${fm(c.value)} (${c.value} د) تجاوز الحد الشهري. ${forEmp ? 'يسعدنا تقديم إفادتك.' : 'تُعرض على المسؤول المختص لمراجعة المبررات.'}`); return; }
-    if (c.type === 'absence') { const L = E.filter((d) => d.kind === 'absent'); if (!L.length) return; mk(nm + 'غياب غير مبرر تجاوز 7 أيام في ' + M, `${L.length} يوم خلال الفترة: ${L.map((d) => H.dm(d.date)).join('، ')}. إجمالي ${M}: ${c.value} أيام.`); return; }
-    if (c.type === 'perm') { mk(caseText(c, forEmp)[2], caseText(c, forEmp)[3] + ' (رصيد شهري)'); return; }
-  });
-  return items.length ? { t: 'cases', items } : { t: 'p', text: 'لا توجد حالات للمراجعة خلال الفترة ✓', cls: 'gr' };
-}
-function hdrBlocks(title, sub) { const b = [{ t: 'head', title, sub }]; if (DB.settings.test) b.push({ t: 'test' }); return b; }
-function caseBlock(cases, forEmp) {
-  if (!cases.length) return { t: 'p', text: 'لا توجد حالات ✓', cls: 'gr' };
-  return { t: 'cases', items: cases.map((c) => { const [, , t, d] = caseText(c, forEmp); return { title: (c.done ? '✓ ' : '') + t, desc: d, foot: c.done ? 'عولجت' : 'حالة للمراجعة الإدارية — ليست جزاءً ولا حسمًا تلقائيًا', cls: c.done ? 'gr' : c.type === 'loss' || c.type === 'absence' ? 'r' : 'o' }; }) };
-}
-function calBlock(D, m, r) { const map = {}; D.forEach((d) => { if (d.month === m) map[d.date] = { k: d.review && d.kind === 'ok' ? 'rev' : d.kind, sym: KSYM[d.kind], txt: d.unjust && d.kind !== 'absent' ? fm(d.unjust) : '' }; }); return { t: 'cal', month: m, map, from: r && r.from, to: r && r.to }; }
-/** صفوف التقويم التي تقع فيها الفترة فقط */
-function calRows(b) { const [yr, mo] = b.month.split('-').map(Number), n = new Date(Date.UTC(yr, mo, 0)).getUTCDate(), off = H.dow(b.month + '-01'), rowOf = (dd) => Math.floor((off + dd - 1) / 7);
-  const d0 = b.from && b.from.slice(0, 7) === b.month ? +b.from.slice(8) : 1, d1 = b.to && b.to.slice(0, 7) === b.month ? +b.to.slice(8) : n; return { yr, mo, n, off, r0: rowOf(d0), rows: rowOf(d1) - rowOf(d0) + 1 }; }
-function empBlocks(key, r0) {
+const caseRows = (cases, forEmp) => cases.length ? cases.map((c) => { const [, , t, d] = caseText(c, forEmp); return `<div class="case"><b class="${c.done ? 'gr' : c.type === 'loss' || c.type === 'absence' ? 'r' : 'o'}">${c.done ? '✓ ' : ''}${esc(t)}</b>${esc(d)}<br><small>${c.done ? 'عولجت' : 'حالة للمراجعة الإدارية — ليست جزاءً ولا حسمًا تلقائيًا'}</small></div>`; }).join('') : '<p class="gr">لا توجد حالات ✓</p>';
+/** التقرير الفردي: يُبنى من أيام هذا الموظف فقط ولا يتضمن أي بيانات أخرى */
+function reportEmp(key, r0) {
   const r = clampR(r0), e = EMP[key], D = DAYS.filter((d) => d.emp === key && inR(d, r)), a = H.agg(D), month = r.to.slice(0, 7), b = H.balance(DB, DAYS, key, month);
   const ents = DB.entries.filter((x) => !x.deleted && x.emp === key && x.date >= r.from && x.date <= r.to && x.kind !== 'personal');
   const perms = DB.entries.filter((x) => !x.deleted && x.emp === key && x.date >= r.from && x.date <= r.to && x.kind === 'personal');
   const notes = DB.notes.filter((n) => n.emp === key && n.date >= r.from && n.date <= r.to);
   const months = [...new Set(D.map((d) => d.month))].slice(-2), cases = caseList(r, [e]);
   const sd = D.filter((d) => d.unjust > 0 && d.kind !== 'absent' && d.kind !== 'invalid'), ab = D.filter((d) => d.kind === 'absent');
-  const len = (x) => fm(x.start != null ? x.end - x.start : H.dmin(x.minutes)), tw = (x) => x.start != null ? iso(H.hhmm(x.start) + '–' + H.hhmm(x.end)) : '—';
-  const B = [...hdrBlocks('تقرير متابعة الانضباط — ' + e.name, 'فترة المتابعة: ' + prL(r) + ' (' + workDaysIn(D) + ' أيام عمل)'),
-    { t: 'rings', items: [{ v: a.disc || 0, c: 'gold', big: pc1(a.disc), small: 'الانضباط', cap: 'نسبة الانضباط' },
-      { v: Math.min(100, a.lossPct * 5), c: '#A83A33', big: fm(a.loss), small: 'فاقد', cap: 'الفاقد غير المبرر ' + a.lossPct.toFixed(1) + '%' },
-      { v: Math.min(100, b.pct), c: b.over ? '#A83A33' : 'gold', big: b.pct + '%', small: 'الاستئذان', cap: 'رصيد ' + MNm(month) + ': المستخدم ' + fm(b.used) + ' · المتبقي ' + fm(b.remaining) }] },
-    { t: 'boxes', items: [{ l: 'الدوام المطلوب', v: fm(a.req), s: a.req + ' د · ' + a.workDays + ' يوم' }, { l: 'الدوام المحتسب', v: fm(a.att), s: a.att + ' د' },
-      { l: 'الفاقد غير المبرر', v: a.loss + ' د', s: fm(a.loss) + ' · ' + a.lossPct.toFixed(1) + '% · ' + eqd(a.loss) + ' يوم مكافئ', cls: 'r' }, { l: 'الغياب الفعلي', v: a.absentDays + ' يوم', s: 'إجازات معتمدة: ' + a.leaveDays },
-      { l: 'مبرر باستئذان شخصي', v: fm(a.covPL) }, { l: 'مبرر بمهام وتدريب', v: fm(a.covML), cls: 'pu' },
-      { l: 'التأخر بعد 7:00', v: a.lateDays + ' مرة', s: fm(a.lateMin) + ' (مؤشر مستقل)' }, { l: 'الخروج المبكر', v: a.earlyDays + ' مرة', s: fm(a.earlyMin) }] },
-    { t: 'sum', text: 'الانضباط = (المطلوب − الفاقد − دقائق الغياب) ÷ المطلوب = ' + iso('(' + a.req + ' − ' + a.loss + ' − ' + a.absMin + ') ÷ ' + a.req + ' = ' + (a.disc == null ? '—' : a.disc.toFixed(2) + '%')) + ' · الانصراف التلقائي: ' + a.autoDays + (a.autoDates.length ? ' (' + a.autoDates.map(H.dm).join('، ') + ')' : '') },
-    { t: 'h2', text: 'رصيد الاستئذان الشخصي — شهر ' + MNm(month) + ' حتى ' + H.dm(r.to) },
-    { t: 'sum', tone: 'gray', text: 'الحد الشهري 10 س (600 د) · المستخدم: ' + fm(b.used) + ' · المتبقي: ' + fm(b.remaining) + (b.over ? ' · تجاوز ' + fm(b.over) + ' — للمراجعة' : '') + ' · قيد المراجعة: ' + fm(b.pending) + ' · مرفوض: ' + fm(b.rejected) },
-    { t: 'h2', text: 'تواريخ الفاقد غير المبرر' },
-    sd.length ? { t: 'table', cols: [{ l: 'التاريخ', w: 2.2 }, { l: 'الحضور', w: 1 }, { l: 'الانصراف', w: 1 }, { l: 'المحتسب', w: 1.2 }, { l: 'المبرر', w: 1 }, { l: 'الفاقد', w: 1.2 }],
-      rows: sd.map((d) => [d.day + ' ' + H.dmy(d.date), iso(tm(d.punch && d.punch.ci)), d.punch && d.punch.co == null && d.punch.auto ? 'تلقائي' : iso(tm(d.punch && d.punch.co)), fm(d.att), fm(d.covP + d.covM), { s: fm(d.unjust), cls: 'r' }]),
-      foot: ['المجموع', '', '', '', '', { s: fm(a.loss) + ' (' + a.loss + ' د)', cls: 'r' }] } : { t: 'p', text: 'لا يوجد فاقد غير مبرر ✓', cls: 'gr' }];
-  if (ab.length) B.push({ t: 'h2', text: 'أيام الغياب' }, { t: 'p', text: ab.map((d) => d.day + ' ' + H.dmy(d.date)).join(' · ') });
-  B.push({ t: 'h2', text: 'تقويم الحضور' }, ...months.map((m) => calBlock(D, m, r)), { t: 'p', small: true, text: '✓ مكتمل · ✕ فاقد/غياب · ! مراجعة · ا استئذان · م مهمة/تدريب · — عطلة/إجازة' },
-    { t: 'h2', text: 'حالات للمراجعة الإدارية خلال الفترة' }, reportCases(cases, true, r, D),
-    { t: 'h2', text: 'مهام العمل والتدريب' }, ents.length ? { t: 'table', cols: [{ l: 'التاريخ', w: 1.8 }, { l: 'النوع', w: 1.6 }, { l: 'الوقت', w: 1.2 }, { l: 'المدة', w: 1 }, { l: 'الاعتماد', w: 1 }, { l: 'المرجع', w: 1 }],
-      rows: ents.map((x) => [H.dmy(x.date) + (x.to && x.to !== x.date ? ' – ' + H.dmy(x.to) : ''), H.KIND[x.kind], tw(x), len(x), x.status, x.ref || '—']) } : { t: 'p', text: 'لا توجد' },
-    { t: 'h2', text: 'الاستئذانات الشخصية' }, perms.length ? { t: 'table', cols: [{ l: 'التاريخ', w: 1.4 }, { l: 'الوقت', w: 1.2 }, { l: 'المدة', w: 1 }, { l: 'الاعتماد', w: 1 }],
-      rows: perms.map((x) => [H.dmy(x.date), tw(x), len(x), x.status]) } : { t: 'p', text: 'لا توجد' },
-    { t: 'h2', text: 'الملاحظات' }, notes.length ? { t: 'table', cols: [{ l: 'التاريخ', w: 1 }, { l: 'النوع', w: 1.4 }, { l: 'السبب', w: 2.6 }, { l: 'الحالة', w: 1 }, { l: 'القرار', w: 1.6 }],
-      rows: notes.map((n) => [H.dmy(n.date), n.type, n.reason || '—', n.status, n.decision || '—']) } : { t: 'p', text: 'لا توجد' },
-    { t: 'p', small: true, text: RULES });
-  B.range = r; return { blocks: B, a, b, r, sd, D, title: 'تقرير ' + e.name + ' ' + pr(r), name: 'تقرير_' + e.name.replace(/\s+/g, '_').replace(/[()]/g, '') + '_' + r.from + '_' + r.to };
+  const body = `<div class="pg">${head('تقرير متابعة الانضباط — ' + e.name, 'فترة المتابعة: ' + pr(r))}
+  <div class="rg"><div>${ringS(a.disc || 0, 'gold', 124, pc1(a.disc), 'الانضباط')}<br>نسبة الانضباط</div>
+  <div>${ringS(Math.min(100, a.lossPct * 5), '#A83A33', 124, fm(a.loss), 'فاقد')}<br>الفاقد غير المبرر ${a.lossPct.toFixed(1)}%</div>
+  <div>${ringS(Math.min(100, b.pct), b.over ? '#A83A33' : 'gold', 124, b.pct + '%', 'الاستئذان')}<br>المستخدم ${esc(fm(b.used))} · المتبقي ${esc(fm(b.remaining))}</div></div>
+  <div class="g"><div class="b"><span>الدوام المطلوب</span><b>${esc(fm(a.req))}</b><span>${a.req} د · ${a.workDays} يوم</span></div><div class="b"><span>الدوام المحتسب</span><b>${esc(fm(a.att))}</b><span>${a.att} د</span></div>
+  <div class="b"><span>الفاقد غير المبرر</span><b class="r">${a.loss} د</b><span>${esc(fm(a.loss))} · ${a.lossPct.toFixed(1)}% · ${eqd(a.loss)} يوم مكافئ</span></div><div class="b"><span>الغياب الفعلي</span><b>${a.absentDays} يوم</b><span>إجازات معتمدة: ${a.leaveDays}</span></div>
+  <div class="b"><span>مبرر باستئذان شخصي</span><b>${esc(fm(a.covPL))}</b></div><div class="b"><span>مبرر بمهام وتدريب</span><b class="pu">${esc(fm(a.covML))}</b></div>
+  <div class="b"><span>التأخر بعد 7:00</span><b>${a.lateDays} مرة</b><span>${esc(fm(a.lateMin))} (مؤشر مستقل)</span></div><div class="b"><span>الخروج المبكر</span><b>${a.earlyDays} مرة</b><span>${esc(fm(a.earlyMin))}</span></div></div>
+  <div class="sum">الانضباط = (المطلوب − الفاقد − دقائق الغياب) ÷ المطلوب = (${a.req} − ${a.loss} − ${a.absMin}) ÷ ${a.req} = <b>${a.disc == null ? '—' : a.disc.toFixed(2) + '%'}</b> · الانصراف التلقائي: ${a.autoDays}${a.autoDates.length ? ' (' + a.autoDates.map(H.dm).join('، ') + ')' : ''}</div>
+  <h2>الاستئذان الشخصي — ${MNm(month)}</h2><div class="sum" style="background:#F5F6F8;border-color:#E9ECF1">الحد الشهري 10 س (600 د) · المستخدم: <b>${esc(fm(b.used))}</b> · المتبقي: <b>${esc(fm(b.remaining))}</b>${b.over ? ' · <span class="r">تجاوز ' + esc(fm(b.over)) + ' — للمراجعة</span>' : ''} · قيد المراجعة: ${esc(fm(b.pending))} · مرفوض: ${esc(fm(b.rejected))}</div>
+  <h2>تواريخ الفاقد غير المبرر</h2>${sd.length ? `<table><tr><th>التاريخ</th><th>الحضور</th><th>الانصراف</th><th>المحتسب</th><th>المبرر</th><th>الفاقد</th></tr>${sd.map((d) => `<tr><td>${esc(d.day + ' ' + H.dmy(d.date))}</td><td class="num">${H.hhmm(d.punch && d.punch.ci) || '—'}</td><td class="num">${H.hhmm(d.punch && d.punch.co) || (d.punch && d.punch.auto ? 'تلقائي' : '—')}</td><td>${esc(fm(d.att))}</td><td>${esc(fm(d.covP + d.covM))}</td><td class="r">${esc(fm(d.unjust))}</td></tr>`).join('')}<tr><th colspan="5">المجموع</th><th class="r">${esc(fm(a.loss))} (${a.loss} د)</th></tr></table>` : '<p class="gr">لا يوجد فاقد غير مبرر ✓</p>'}
+  ${ab.length ? `<h2>أيام الغياب</h2><p>${ab.map((d) => esc(d.day + ' ' + H.dmy(d.date))).join(' · ')}</p>` : ''}
+  </div><div class="pg"><h2>تقويم الحضور</h2>${months.map((m) => calHtml(D, m)).join('')}
+  <p style="font-size:10.5px;color:#7F8999">✓ مكتمل · ✕ فاقد/غياب · ! مراجعة · ا استئذان · م مهمة/تدريب · — عطلة/إجازة</p>
+  <h2>حالات للمراجعة الإدارية</h2>${caseRows(cases, true)}
+  <h2>مهام العمل والتدريب</h2>${ents.length ? `<table><tr><th>التاريخ</th><th>النوع</th><th>الوقت</th><th>المدة</th><th>الاعتماد</th><th>المرجع</th></tr>${ents.map((x) => `<tr><td>${esc(H.dmy(x.date) + (x.to && x.to !== x.date ? ' – ' + H.dmy(x.to) : ''))}</td><td>${esc(H.KIND[x.kind])}</td><td class="num">${x.start != null ? H.hhmm(x.start) + '–' + H.hhmm(x.end) : '—'}</td><td>${esc(fm(x.start != null ? x.end - x.start : H.dmin(x.minutes)))}</td><td>${esc(x.status)}</td><td>${esc(x.ref || '—')}</td></tr>`).join('')}</table>` : '<p>لا توجد</p>'}
+  <h2>الاستئذانات الشخصية</h2>${perms.length ? `<table><tr><th>التاريخ</th><th>الوقت</th><th>المدة</th><th>الاعتماد</th></tr>${perms.map((x) => `<tr><td>${esc(H.dmy(x.date))}</td><td class="num">${x.start != null ? H.hhmm(x.start) + '–' + H.hhmm(x.end) : '—'}</td><td>${esc(fm(x.start != null ? x.end - x.start : H.dmin(x.minutes)))}</td><td>${esc(x.status)}</td></tr>`).join('')}</table>` : '<p>لا توجد</p>'}
+  <h2>الملاحظات</h2>${notes.length ? `<table><tr><th>التاريخ</th><th>النوع</th><th>السبب</th><th>الحالة</th><th>القرار</th></tr>${notes.map((n) => `<tr><td>${esc(H.dmy(n.date))}</td><td>${esc(n.type)}</td><td>${esc(n.reason || '—')}</td><td>${esc(n.status)}</td><td>${esc(n.decision || '—')}</td></tr>`).join('')}</table>` : '<p>لا توجد</p>'}
+  <p style="font-size:10.5px;color:#7F8999;margin-top:14px">${RULES}</p></div>`;
+  return { html: wrapReport('تقرير ' + e.name + ' ' + pr(r), body), a, b, r, sd };
 }
-function mgrBlocks(endDate) {
+function reportMgr(endDate) {
   const end = endDate || MAXD, ws = H.weekStart(end), r = clampR({ from: H.addDays(ws, -7), to: H.addDays(ws, 6) }), rp = { from: H.addDays(H.weekStart(r.from), -14), to: H.addDays(H.weekStart(r.from), -1) };
   const D = DAYS.filter((d) => inR(d, r)), Dp = DAYS.filter((d) => inR(d, rp)), a = H.agg(D), ap = H.agg(Dp), E = actEmps();
   const per = E.map((e) => ({ e, a: H.agg(D.filter((d) => d.emp === e.key)), ap: H.agg(Dp.filter((d) => d.emp === e.key)), b: H.balance(DB, DAYS, e.key, r.to.slice(0, 7)) }));
   const cases = caseList(r, E), open = cases.filter((c) => !c.done), mxl = Math.max(H.C.ACC_LOSS, ...per.map((p) => p.a.loss));
   const notes = DB.notes.filter((n) => (n.date >= r.from && n.date <= r.to) || n.status === 'جديدة' || n.status === 'قيد المراجعة');
   const top = per.slice().sort((x, y) => y.a.loss - x.a.loss)[0], trend = a.loss - ap.loss, hasPrev = Dp.some((d) => d.counted);
-  const used = per.reduce((s, p) => s + p.b.used, 0), lim = 600 * E.length;
-  const exec = `خلال الفترة ${pr(r)} بلغت نسبة الانضباط العامة ${pc1(a.disc)}، وبلغ الفاقد غير المبرر ${fm(a.loss)} (${a.loss} د = ${eqd(a.loss)} يوم مكافئ) دون أيام الغياب، ${hasPrev ? (trend > 0 ? 'بزيادة ' + fm(trend) : trend < 0 ? 'بانخفاض ' + fm(-trend) : 'دون تغيير') + ' عن الأسبوعين السابقين' : 'ولا توجد فترة سابقة للمقارنة'}. الغياب الفعلي ${a.absentDays} يوم، والتأخر بعد 7:00 ${a.lateDays} مرة، والخروج المبكر ${a.earlyDays} مرة، والانصراف التلقائي ${a.autoDays} حالة. غُطي ${fm(a.covPL)} باستئذانات شخصية معتمدة و${fm(a.covML)} بمهام عمل وتدريب. توجد ${open.length} حالة للمراجعة الإدارية${top && top.a.loss ? '، وأعلى فاقد لدى ' + top.e.name + ' (' + fm(top.a.loss) + ')' : ''}. لا يتضمن التقرير أي جزاء أو حسم تلقائي.`;
-  const it = [['المطلوب', a.req, '#0A1B3F'], ['المحتسب', a.att, '#1D3A78'], ['مبرر باستئذان', a.covP, '#C8A24A'], ['مبرر بمهام', a.covM, '#E6CE8F'], ['الفاقد غير المبرر', a.loss, '#A83A33'], ['الغياب', a.absMin, '#C9CFD9']], mi = Math.max(1, ...it.map((x) => x[1]));
-  const B = [...hdrBlocks('تقرير المدير الشامل — كل أسبوعين', 'الفترة: ' + prL(r) + ' (' + workDaysIn(D) + ' يوم عمل) · المقارنة: ' + prL(rp)),
-    { t: 'rings', items: [{ v: a.disc || 0, c: 'gold', big: pc1(a.disc), small: 'الانضباط', cap: 'الانضباط العام · السابقة: ' + pc1(ap.disc) },
-      { v: Math.min(100, a.lossPct * 5), c: '#A83A33', big: a.lossPct.toFixed(1) + '%', small: 'فاقد', cap: 'الفاقد غير المبرر ' + fm(a.loss) + ' · السابقة: ' + fm(ap.loss) },
-      { v: lim ? 100 * used / lim : 0, c: 'gold', big: (lim ? Math.round(100 * used / lim) : 0) + '%', small: 'استئذان', cap: 'الاستئذان الشخصي للشهر · ' + fm(used) + ' من ' + fm(lim) }] },
-    { t: 'boxes', items: [{ l: 'الساعات المطلوبة', v: fm(a.req) }, { l: 'المحتسب بالبصمة', v: fm(a.att) }, { l: 'مبرر باستئذان شخصي', v: fm(a.covPL) }, { l: 'مبرر بمهام وتدريب', v: fm(a.covML), cls: 'pu' },
-      { l: 'الفاقد غير المبرر', v: a.loss + ' د', s: fm(a.loss) + ' · ' + eqd(a.loss) + ' يوم مكافئ', cls: 'r' }, { l: 'الغياب / الإجازات', v: a.absentDays + ' / ' + a.leaveDays, s: 'يوم' },
-      { l: 'التأخر / الخروج المبكر', v: a.lateDays + ' / ' + a.earlyDays, s: fm(a.lateMin) + ' / ' + fm(a.earlyMin) }, { l: 'للمراجعة الإدارية', v: String(open.length), s: 'انصراف تلقائي: ' + a.autoDays, cls: 'o' }] },
-    { t: 'h2', text: 'ملخص تنفيذي' }, { t: 'sum', text: exec },
-    { t: 'h2', text: 'توزيع ساعات الدوام المطلوبة' }, { t: 'bars', items: it.map(([l, v, c]) => ({ l, w: 100 * v / mi, c, v: fm(v) })) },
-    { t: 'h2', text: 'مقارنة الانضباط بين الموظفين' }, { t: 'bars', items: per.filter((p) => p.a.disc != null).sort((x, y) => y.a.disc - x.a.disc).map((p) => ({ l: p.e.name, w: Math.max(3, (p.a.disc - 78) / 22 * 100), c: p.a.disc >= 98 ? '#0A1B3F' : p.a.disc >= 90 ? '#6476A0' : '#A83A33', v: pc1(p.a.disc) })) },
-    { t: 'h2', text: 'مقارنة الموظفين' },
-    { t: 'table', small: true, cols: [{ l: 'الموظف', w: 1.6 }, { l: 'الانضباط', w: 1 }, { l: 'المحتسب', w: 1.2 }, { l: 'المبرر', w: 1 }, { l: 'الفاقد غير المبرر', w: 1.2 }, { l: 'يوم مكافئ', w: .8 }, { l: 'السابقة', w: 1 }, { l: 'الغياب', w: .6 }, { l: 'تأخر', w: .6 }, { l: 'خروج', w: .6 }, { l: 'تلقائي', w: .6 }, { l: 'الاستئذان', w: 1.1 }],
-      rows: per.map((p) => [p.e.name, pc1(p.a.disc), fm(p.a.att), fm(p.a.covPL + p.a.covML), { s: fm(p.a.loss), cls: p.a.loss > H.C.ACC_LOSS ? 'r' : '' }, eqd(p.a.loss), fm(p.ap.loss), String(p.a.absentDays), String(p.a.lateDays), String(p.a.earlyDays), String(p.a.autoDays), fm(p.b.used) + (p.b.over ? ' تجاوز' : '')]),
-      foot: ['الإجمالي', pc1(a.disc), fm(a.att), fm(a.covPL + a.covML), { s: fm(a.loss), cls: 'r' }, eqd(a.loss), fm(ap.loss), String(a.absentDays), String(a.lateDays), String(a.earlyDays), String(a.autoDays), ''] },
-    { t: 'h2', text: 'الفاقد غير المبرر لكل موظف (الحد الشهري للمراجعة 7 ساعات لكل موظف)' },
-    { t: 'bars', items: per.slice().sort((x, y) => y.a.loss - x.a.loss).map((p) => ({ l: p.e.name, w: 100 * p.a.loss / mxl, c: p.a.loss > H.C.ACC_LOSS ? '#A83A33' : '#1D3A78', v: fm(p.a.loss) })) },
-    { t: 'h2', text: 'حالات للمراجعة الإدارية خلال الفترة' }, reportCases(cases, false, r, D),
-    { t: 'h2', text: 'قائمة الملاحظات' }, notes.length ? { t: 'table', cols: [{ l: 'الموظف', w: 1.3 }, { l: 'التاريخ', w: 1 }, { l: 'النوع', w: 1.6 }, { l: 'الحالة', w: 1 }, { l: 'القرار', w: 1.6 }], rows: notes.map((n) => [empName(n.emp), H.dmy(n.date), n.type, n.status, n.decision || '—']) } : { t: 'p', text: 'لا توجد' },
-    { t: 'h2', text: 'أيام الفاقد غير المبرر' },
-    { t: 'table', cols: [{ l: 'الموظف', w: 1.3 }, { l: 'التاريخ', w: 1.8 }, { l: 'الحضور', w: 1 }, { l: 'الانصراف', w: 1 }, { l: 'الفاقد', w: 1 }],
-      rows: D.filter((d) => d.unjust > 0 && d.kind !== 'absent' && d.kind !== 'invalid').sort((x, y) => empName(x.emp).localeCompare(empName(y.emp), 'ar') || (x.date < y.date ? -1 : 1)).map((d) => [empName(d.emp), d.day + ' ' + H.dmy(d.date), iso(tm(d.punch && d.punch.ci)), iso(tm(d.punch && d.punch.co)), { s: fm(d.unjust), cls: 'r' }]) },
-    { t: 'p', small: true, text: 'الحساب من السجلات اليومية الأصلية بالدقائق · ' + RULES }];
-  B.range = r; return { blocks: B, a, r, per, D, title: 'تقرير المدير ' + pr(r), name: 'تقرير_المدير_' + r.from + '_' + r.to };
+  const exec = `خلال الفترة ${pr(r)} بلغت نسبة الانضباط العامة <b>${pc1(a.disc)}</b>، وبلغ الفاقد غير المبرر <b>${esc(fm(a.loss))}</b> (${a.loss} د = ${eqd(a.loss)} يوم مكافئ) دون أيام الغياب، ${hasPrev ? (trend > 0 ? 'بزيادة ' + esc(fm(trend)) : trend < 0 ? 'بانخفاض ' + esc(fm(-trend)) : 'دون تغيير') + ' عن الأسبوعين السابقين' : 'ولا توجد فترة سابقة للمقارنة'}.
+   الغياب الفعلي ${a.absentDays} يوم، والتأخر بعد 7:00 ${a.lateDays} مرة، والخروج المبكر ${a.earlyDays} مرة، والانصراف التلقائي ${a.autoDays} حالة. غُطي ${esc(fm(a.covPL))} باستئذانات شخصية معتمدة و${esc(fm(a.covML))} بمهام عمل وتدريب.
+   توجد <b>${open.length}</b> حالة للمراجعة الإدارية${top && top.a.loss ? '، وأعلى فاقد لدى ' + esc(top.e.name) + ' (' + esc(fm(top.a.loss)) + ')' : ''}. لا يتضمن التقرير أي جزاء أو حسم تلقائي.`;
+  const vb = (() => { const it = [['المطلوب', a.req, '#0A1B3F'], ['المحتسب', a.att, '#1D3A78'], ['مبرر باستئذان', a.covP, '#C8A24A'], ['مبرر بمهام', a.covM, '#E6CE8F'], ['الفاقد غير المبرر', a.loss, '#A83A33'], ['الغياب', a.absMin, '#C9CFD9']]; const m = Math.max(1, ...it.map((x) => x[1]));
+    return it.map(([l, v, c]) => `<div style="display:flex;align-items:center;gap:8px;margin:5px 0"><span style="width:110px">${l}</span><div class="bar" style="flex:1"><i style="width:${100 * v / m}%;background:${c}"></i></div><b style="width:95px">${esc(fm(v))}</b></div>`).join(''); })();
+  const body = `<div class="pg">${head('تقرير المدير الشامل — كل أسبوعين', 'الفترة: ' + pr(r) + ' · المقارنة: ' + pr(rp))}
+  <div class="rg"><div>${ringS(a.disc || 0, 'gold', 128, pc1(a.disc), 'الانضباط')}<br>الانضباط العام · السابقة: ${pc1(ap.disc)}</div>
+  <div>${ringS(Math.min(100, a.lossPct * 5), '#A83A33', 128, a.lossPct.toFixed(1) + '%', 'فاقد')}<br>الفاقد غير المبرر ${esc(fm(a.loss))} · السابقة: ${esc(fm(ap.loss))}</div>
+  <div>${(() => { const u = per.reduce((s, p) => s + p.b.used, 0), l = 600 * E.length; return ringS(100 * u / l, 'gold', 128, Math.round(100 * u / l) + '%', 'استئذان') + '<br>الاستئذان الشخصي للشهر · ' + esc(fm(u)) + ' من ' + esc(fm(l)); })()}</div></div>
+  <div class="g"><div class="b"><span>الساعات المطلوبة</span><b>${esc(fm(a.req))}</b></div><div class="b"><span>المحتسب بالبصمة</span><b>${esc(fm(a.att))}</b></div><div class="b"><span>مبرر باستئذان شخصي</span><b>${esc(fm(a.covPL))}</b></div><div class="b"><span>مبرر بمهام وتدريب</span><b class="pu">${esc(fm(a.covML))}</b></div>
+  <div class="b"><span>الفاقد غير المبرر</span><b class="r">${a.loss} د</b><span>${esc(fm(a.loss))} · ${eqd(a.loss)} يوم مكافئ</span></div><div class="b"><span>الغياب / الإجازات</span><b>${a.absentDays} / ${a.leaveDays}</b><span>يوم</span></div><div class="b"><span>التأخر / الخروج المبكر</span><b>${a.lateDays} / ${a.earlyDays}</b><span>${esc(fm(a.lateMin))} / ${esc(fm(a.earlyMin))}</span></div><div class="b"><span>للمراجعة الإدارية</span><b class="o">${open.length}</b><span>انصراف تلقائي: ${a.autoDays}</span></div></div>
+  <h2>ملخص تنفيذي</h2><div class="sum">${exec}</div>
+  <h2>توزيع ساعات الدوام المطلوبة</h2>${vb}
+  <h2>مقارنة الانضباط بين الموظفين</h2>${per.filter((p) => p.a.disc != null).sort((x, y) => y.a.disc - x.a.disc).map((p) => `<div style="display:flex;align-items:center;gap:8px;margin:4px 0"><span style="width:120px">${esc(p.e.name)}</span><div class="bar" style="flex:1"><i style="width:${Math.max(3, (p.a.disc - 78) / 22 * 100)}%;background:${p.a.disc >= 98 ? '#0A1B3F' : p.a.disc >= 90 ? '#6476A0' : '#A83A33'}"></i></div><b style="width:70px" class="num">${pc1(p.a.disc)}</b></div>`).join('')}
+  </div><div class="pg"><h2>مقارنة الموظفين</h2><table><tr><th>الموظف</th><th>الانضباط</th><th>المحتسب</th><th>المبرر</th><th>الفاقد غير المبرر</th><th>يوم مكافئ</th><th>السابقة</th><th>الغياب</th><th>تأخر</th><th>خروج</th><th>تلقائي</th><th>الاستئذان</th></tr>
+  ${per.map((p) => `<tr><td>${esc(p.e.name)}</td><td>${pc1(p.a.disc)}</td><td>${esc(fm(p.a.att))}</td><td>${esc(fm(p.a.covPL + p.a.covML))}</td><td class="${p.a.loss > H.C.ACC_LOSS ? 'r' : ''}">${esc(fm(p.a.loss))}</td><td>${eqd(p.a.loss)}</td><td>${esc(fm(p.ap.loss))}</td><td>${p.a.absentDays}</td><td>${p.a.lateDays}</td><td>${p.a.earlyDays}</td><td>${p.a.autoDays}</td><td>${esc(fm(p.b.used))}${p.b.over ? ' <span class="r">تجاوز</span>' : ''}</td></tr>`).join('')}
+  <tr><th>الإجمالي</th><th>${pc1(a.disc)}</th><th>${esc(fm(a.att))}</th><th>${esc(fm(a.covPL + a.covML))}</th><th class="r">${esc(fm(a.loss))}</th><th>${eqd(a.loss)}</th><th>${esc(fm(ap.loss))}</th><th>${a.absentDays}</th><th>${a.lateDays}</th><th>${a.earlyDays}</th><th>${a.autoDays}</th><th></th></tr></table>
+  <h2>الفاقد غير المبرر لكل موظف (الحد الشهري للمراجعة 7 ساعات لكل موظف)</h2>${per.slice().sort((x, y) => y.a.loss - x.a.loss).map((p) => `<div style="display:flex;align-items:center;gap:8px;margin:4px 0"><span style="width:120px">${esc(p.e.name)}</span><div class="bar" style="flex:1"><i style="width:${100 * p.a.loss / mxl}%;background:${p.a.loss > H.C.ACC_LOSS ? '#A83A33' : '#1D3A78'}"></i></div><b style="width:110px">${esc(fm(p.a.loss))}</b></div>`).join('')}
+  <h2>حالات للمراجعة الإدارية</h2>${caseRows(cases, false)}
+  <h2>قائمة الملاحظات</h2>${notes.length ? `<table><tr><th>الموظف</th><th>التاريخ</th><th>النوع</th><th>الحالة</th><th>القرار</th></tr>${notes.map((n) => `<tr><td>${esc(empName(n.emp))}</td><td>${esc(H.dmy(n.date))}</td><td>${esc(n.type)}</td><td>${esc(n.status)}</td><td>${esc(n.decision || '—')}</td></tr>`).join('')}</table>` : '<p>لا توجد</p>'}
+  <h2>أيام الفاقد غير المبرر</h2><table><tr><th>الموظف</th><th>التاريخ</th><th>الحضور</th><th>الانصراف</th><th>الفاقد</th></tr>${D.filter((d) => d.unjust > 0 && d.kind !== 'absent' && d.kind !== 'invalid').sort((x, y) => empName(x.emp).localeCompare(empName(y.emp), 'ar') || (x.date < y.date ? -1 : 1)).map((d) => `<tr><td>${esc(empName(d.emp))}</td><td>${esc(d.day + ' ' + H.dmy(d.date))}</td><td class="num">${H.hhmm(d.punch && d.punch.ci) || '—'}</td><td class="num">${H.hhmm(d.punch && d.punch.co) || '—'}</td><td class="r">${esc(fm(d.unjust))}</td></tr>`).join('')}</table>
+  <p style="font-size:10.5px;color:#7F8999;margin-top:14px">${RULES}</p></div>`;
+  return { html: wrapReport('تقرير المدير ' + pr(r), body), a, r, per };
 }
-/* ---- الكتل ← HTML ---- */
-const hx = (s) => esc(String(s == null ? '' : s)).replace(/⁦([^⁩]*)⁩/g, '<span class="num">$1</span>');
-const cellHtml = (c) => typeof c === 'object' && c ? `<span class="${c.cls || ''}">${hx(c.s)}</span>` : hx(c);
-function blocksToHtml(B, title) {
-  let h = '<div class="pg">';
-  B.forEach((b) => {
-    switch (b.t) {
-      case 'head': h += `<div class="hdr"><div><h1>${hx(b.title)}</h1><p>الإدارة العامة للتعليم بمنطقة نجران – إدارة أداء التعليم – قسم الإشراف التربوي</p></div><div style="text-align:left"><p>${hx(b.sub)}</p><p>تاريخ الإصدار: ${hx(H.dmy(today()))}</p></div></div>`; break;
-      case 'test': h += '<p class="tst">بيانات اختبار مجهولة — ليست نتائج حقيقية</p>'; break;
-      case 'rings': h += '<div class="rg">' + b.items.map((x) => `<div>${ringS(x.v, x.c, 124, x.big, x.small)}<br>${hx(x.cap)}</div>`).join('') + '</div>'; break;
-      case 'boxes': h += '<div class="g">' + b.items.map((x) => `<div class="b"><span>${hx(x.l)}</span><b class="${x.cls || ''}">${hx(x.v)}</b>${x.s ? `<span>${hx(x.s)}</span>` : ''}</div>`).join('') + '</div>'; break;
-      case 'sum': h += `<div class="sum ${b.tone === 'gray' ? 'gray' : ''}">${hx(b.text)}</div>`; break;
-      case 'h2': h += `<h2>${hx(b.text)}</h2>`; break;
-      case 'p': h += `<p class="${b.small ? 'sm' : ''} ${b.cls || ''}">${hx(b.text)}</p>`; break;
-      case 'page': h += '</div><div class="pg">'; break;
-      case 'table': h += `<table><tr>${b.cols.map((c) => `<th>${hx(c.l)}</th>`).join('')}</tr>${b.rows.map((r) => `<tr>${r.map((c) => `<td>${cellHtml(c)}</td>`).join('')}</tr>`).join('')}${b.foot ? `<tr>${b.foot.map((c) => `<th>${cellHtml(c)}</th>`).join('')}</tr>` : ''}</table>`; break;
-      case 'bars': h += b.items.map((x) => `<div style="display:flex;align-items:center;gap:8px;margin:5px 0"><span style="width:120px">${hx(x.l)}</span><div class="bar" style="flex:1"><i style="width:${Math.max(0, Math.min(100, x.w))}%;background:${x.c}"></i></div><b style="width:100px">${hx(x.v)}</b></div>`).join(''); break;
-      case 'cases': h += b.items.map((x) => `<div class="case"><b class="${x.cls}">${hx(x.title)}</b>${hx(x.desc)}<br><small>${hx(x.foot)}</small></div>`).join(''); break;
-      case 'cal': { const { yr, mo, n, off, r0, rows } = calRows(b);
-        h += `<div style="font-weight:700;margin:6px 0">${H.MN[mo - 1]} ${yr}</div><div class="cal">` + CALH.map((x) => `<div class="h">${x}</div>`).join('') + '<div style="border:0"></div>'.repeat(r0 ? 0 : off);
-        for (let i = 1; i <= n; i++) { const rw = Math.floor((off + i - 1) / 7) - r0; if (rw < 0 || rw >= rows) continue; const d = b.map[b.month + '-' + String(i).padStart(2, '0')]; h += d ? `<div class="k-${d.k}"><b>${i}</b><br>${d.sym}${d.txt ? ' ' + hx(d.txt) : ''}</div>` : `<div style="color:#CBD5E1">${i}</div>`; }
-        h += '</div>'; break; }
-    }
-  });
-  return `<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>${esc(title)}</title><style>${RCSS}</style></head><body>${h}</div></body></html>`;
-}
-const CALH = ['أحد', 'اثن', 'ثلا', 'أرب', 'خمي', 'جمع', 'سبت'];
-function reportEmp(key, r0) { const R = empBlocks(key, r0); R.html = blocksToHtml(R.blocks, R.title); return R; }
-function reportMgr(endDate) { const R = mgrBlocks(endDate); R.html = blocksToHtml(R.blocks, R.title); return R; }
-/* ---- الكتل ← صفحات A4 مرسومة ← ملف PDF ---- */
-const PDF = { W: 595.28, H: 841.89, S: 2.2, M: 32, FONT: '-apple-system, "SF Arabic", "Geeza Pro", "Segoe UI", Tahoma, "Noto Sans Arabic", "DejaVu Sans", sans-serif' };
-const KBG = { ok: '#EAF5EF', short: '#FBEFEE', absent: '#FBEFEE', auto: '#FBF4E6', invalid: '#FBF4E6', rev: '#FBF4E6', mission: '#F0EEF8', perm: '#EEF1F7', off: '#F5F6F8', holiday: '#F5F6F8', leave: '#F5F6F8' };
-const CCOL = { r: '#A83A33', pu: '#5B4A9A', o: '#9A6200', gr: '#1F7A4D', '': '#0F1B33' };
-function PdfPainter() {
-  const S = PDF.S, W = Math.round(PDF.W * S), Hh = Math.round(PDF.H * S), M = PDF.M * S, R = W - M, L = M, CW = R - L, BOT = Hh - M - 18 * S;
-  const pages = [], fill = []; let cv, c, y;
-  const page = () => { if (pages.length) fill.push((y - M) / (BOT - M)); cv = document.createElement('canvas'); cv.width = W; cv.height = Hh; c = cv.getContext('2d'); c.fillStyle = '#fff'; c.fillRect(0, 0, W, Hh); c.direction = 'rtl'; c.textBaseline = 'alphabetic'; pages.push(cv); y = M; };
-  const font = (sz, w) => { c.font = `${w || 400} ${sz * S}px ${PDF.FONT}`; };
-  // رسم سطر RTL مع مقاطع LTR معزولة (أرقام ومعادلات) بترتيبها الصحيح دون الاعتماد على دعم المتصفح لمحارف العزل
-  const txt = (s, x, yy, sz, o) => { o = o || {}; font(sz, o.w); c.fillStyle = o.color || '#0F1B33'; s = String(s);
-    if (s.indexOf(LRI) < 0) { c.direction = 'rtl'; c.textAlign = o.align || 'right'; c.fillText(s, x, yy); return; }
-    const parts = s.split(/(\u2066[^\u2069]*\u2069)/).filter((p) => p !== '').map((p) => p[0] === LRI ? { s: p.slice(1, -1), ltr: true } : { s: p.replace(/\u2069/g, ''), ltr: false });
-    const dir = (d) => { c.direction = d; font(sz, o.w); }; // يعاد ضبط الخط بعد تغيير الاتجاه ليُطبَّق في كل المتصفحات
-    parts.forEach((p) => { dir(p.ltr ? 'ltr' : 'rtl'); p.w = c.measureText(p.s).width; });
-    const tot = parts.reduce((a, p) => a + p.w, 0); let cur = o.align === 'center' ? x + tot / 2 : o.align === 'left' ? x + tot : x;
-    parts.forEach((p) => { dir(p.ltr ? 'ltr' : 'rtl'); c.textAlign = p.ltr ? 'left' : 'right'; c.fillText(p.s, p.ltr ? cur - p.w : cur, yy); cur -= p.w; }); dir('rtl'); };
-  const meas = (s, sz, w) => { font(sz, w); c.direction = 'rtl'; return c.measureText(String(s).replace(/[\u2066\u2069]/g, '')).width; };
-  const wrap = (s, maxW, sz, w) => { const words = String(s == null ? '' : s).match(/\u2066[^\u2069]*\u2069|\S+/g) || [], lines = []; let cur = '';
-    words.forEach((wd) => { const t = cur ? cur + ' ' + wd : wd; if (meas(t, sz, w) <= maxW || !cur) cur = t; else { lines.push(cur); cur = wd; } }); if (cur) lines.push(cur); return lines.length ? lines : ['']; };
-  const rr = (x, yy, w, h, r, fill, stroke, lw) => { c.beginPath(); c.moveTo(x + r, yy); c.arcTo(x + w, yy, x + w, yy + h, r); c.arcTo(x + w, yy + h, x, yy + h, r); c.arcTo(x, yy + h, x, yy, r); c.arcTo(x, yy, x + w, yy, r); c.closePath(); if (fill) { c.fillStyle = fill; c.fill(); } if (stroke) { c.strokeStyle = stroke; c.lineWidth = lw || S; c.stroke(); } };
-  const need = (h) => { if (y + h > BOT) page(); };
-  const gap = (g) => { y += g * S; };
-  page();
-  const P = {
-    head(b) { const tl = wrap(b.title, CW * .56, 16, 800), sl = wrap(b.sub, CW * .36, 8.4).concat(['تاريخ الإصدار: ' + H.dmy(today())]);
-      const h = Math.max(30 + tl.length * 21 + 14, 22 + sl.length * 13) * S + 8 * S; need(h); rr(L, y, CW, h, 14 * S, '#0A1B3F'); c.fillStyle = '#C8A24A'; c.fillRect(L + 10 * S, y + h - 3 * S, CW - 20 * S, 3 * S);
-      tl.forEach((ln, i) => txt(ln, R - 16 * S, y + (24 + i * 21) * S, 16, { w: 800, color: '#fff' })); txt('الإدارة العامة للتعليم بمنطقة نجران – إدارة أداء التعليم – قسم الإشراف التربوي', R - 16 * S, y + (24 + tl.length * 21) * S, 8.2, { color: 'rgba(255,255,255,.8)' });
-      sl.forEach((ln, i) => txt(ln, L + 16 * S, y + (22 + i * 13) * S, 8.4, { color: 'rgba(255,255,255,.88)', align: 'left' })); y += h; gap(8); },
-    test() { const h = 22 * S; need(h); rr(L, y, CW, h, 7 * S, '#C8A24A'); txt('بيانات اختبار مجهولة — ليست نتائج حقيقية', R - 10 * S, y + 15 * S, 9.5, { w: 700, color: '#2B1F04' }); y += h; gap(8); },
-    rings(b) { const rad = 42 * S, lw = 9 * S, h = rad * 2 + 46 * S; need(h); const n = b.items.length, cellW = CW / n;
-      b.items.forEach((x, i) => { const cx = R - cellW * (i + .5), cy = y + rad + 6 * S;
-        c.beginPath(); c.arc(cx, cy, rad - lw / 2, 0, Math.PI * 2); c.strokeStyle = '#E9ECF1'; c.lineWidth = lw; c.stroke();
-        let col = x.c; if (x.c === 'gold') { col = c.createLinearGradient(cx - rad, cy - rad, cx + rad, cy + rad); col.addColorStop(0, '#E6CE8F'); col.addColorStop(1, '#C8A24A'); }
-        const v = Math.max(0, Math.min(100, x.v || 0)); if (v > 0) { c.beginPath(); c.arc(cx, cy, rad - lw / 2, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * v / 100); c.strokeStyle = col; c.lineCap = 'round'; c.stroke(); c.lineCap = 'butt'; }
-        const bs = String(x.big).length > 7 ? 12 : 16; txt(x.big, cx, cy + 3 * S, bs, { w: 800, align: 'center' }); txt(x.small, cx, cy + 17 * S, 8, { color: '#7F8999', align: 'center' });
-        wrap(x.cap, cellW - 10 * S, 8.6).slice(0, 2).forEach((ln, k) => txt(ln, cx, cy + rad + 16 * S + k * 12 * S, 8.6, { color: '#525C6E', align: 'center' })); });
-      y += h; gap(6); },
-    boxes(b) { const cols = 4, g = 7 * S, bw = (CW - g * (cols - 1)) / cols;
-      for (let i = 0; i < b.items.length; i += cols) { const row = b.items.slice(i, i + cols), lines = row.map((x) => x.s ? wrap(x.s, bw - 16 * S, 7.8) : []), mh = Math.max(...lines.map((l) => l.length)), h = (38 + mh * 11) * S; need(h + g);
-        row.forEach((x, k) => { const bx = R - (k + 1) * bw - k * g; rr(bx, y, bw, h, 9 * S, '#fff', '#E9ECF1');
-          txt(x.l, bx + bw - 9 * S, y + 14 * S, 8, { color: '#5B6577' }); txt(x.v, bx + bw - 9 * S, y + 31 * S, 13, { w: 800, color: CCOL[x.cls || ''] });
-          lines[k].forEach((ln, j) => txt(ln, bx + bw - 9 * S, y + 44 * S + j * 11 * S, 7.8, { color: '#5B6577' })); });
-        y += h + g; } gap(2); },
-    sum(b) { const lines = wrap(b.text, CW - 24 * S, 9.4), h = (lines.length * 14 + 14) * S; need(Math.min(h, BOT - M)); const gray = b.tone === 'gray';
-      rr(L, y, CW, h, 10 * S, gray ? '#F5F6F8' : '#FBF7EC', gray ? '#E9ECF1' : '#EADBB0'); lines.forEach((ln, i) => txt(ln, R - 12 * S, y + 18 * S + i * 14 * S, 9.4)); y += h; gap(6); },
-    h2(b) { need(34 * S); gap(8); txt(b.text, R, y + 13 * S, 12, { w: 800, color: '#0A1B3F' }); c.fillStyle = '#E6CE8F'; c.fillRect(L, y + 19 * S, CW, 1.6 * S); y += 26 * S; },
-    p(b) { const sz = b.small ? 8 : 9.4, lines = wrap(b.text, CW, sz); lines.forEach((ln) => { need(14 * S); txt(ln, R, y + 11 * S, sz, { color: b.small ? '#7F8999' : CCOL[b.cls || ''] }); y += (b.small ? 12 : 14) * S; }); gap(4); },
-    page() { if (y > M + 2) page(); },
-    table(b) { const sz = b.small ? 7.4 : 8.2, tot = b.cols.reduce((s, x) => s + x.w, 0), ws = b.cols.map((x) => CW * x.w / tot), pad = 4 * S, lh = (sz + 4) * S;
-      const xr = (i) => R - ws.slice(0, i).reduce((s, v) => s + v, 0);
-      const rowH = (cells, w) => Math.max(...cells.map((cl, i) => wrap(typeof cl === 'object' && cl ? cl.s : cl, ws[i] - pad * 2, sz, w).length)) * lh + pad * 2;
-      const drawRow = (cells, bg, w) => { const h = rowH(cells, w); if (bg) { c.fillStyle = bg; c.fillRect(L, y, CW, h); }
-        cells.forEach((cl, i) => { const s = typeof cl === 'object' && cl ? cl.s : cl, cls = typeof cl === 'object' && cl ? cl.cls : ''; wrap(s, ws[i] - pad * 2, sz, w).forEach((ln, k) => txt(ln, xr(i) - pad, y + pad + (k + 1) * lh - 3 * S, sz, { w: w || (cls === 'r' ? 700 : 400), color: CCOL[cls || ''] })); });
-        c.fillStyle = '#EEF0F4'; c.fillRect(L, y + h - S, CW, S); y += h; };
-      const head = () => drawRow(b.cols.map((x) => x.l), '#F5F6F8', 700);
-      need(rowH(b.cols.map((x) => x.l), 700) + rowH(b.rows[0] || [''], 400)); head();
-      b.rows.forEach((r, i) => { const last = i === b.rows.length - 1 && b.foot ? rowH(b.foot, 700) : 0; if (y + rowH(r) + last > BOT) { page(); head(); } drawRow(r); });
-      if (b.foot) { if (y + rowH(b.foot, 700) > BOT) { page(); head(); } drawRow(b.foot, '#F5F6F8', 700); } gap(6); },
-    bars(b) { const lw = 118 * S, vw = 92 * S, bh = 8 * S, rh = 16 * S;
-      b.items.forEach((x) => { need(rh); txt(x.l, R, y + 11 * S, 8.6); const bx = L + vw, bwid = CW - lw - vw - 8 * S; rr(bx, y + 4 * S, bwid, bh, 4 * S, '#EEF0F4');
-        const fw = bwid * Math.max(0, Math.min(100, x.w)) / 100; if (fw > 0) rr(bx + bwid - fw, y + 4 * S, fw, bh, 4 * S, x.c); txt(x.v, L, y + 11 * S, 8.6, { w: 700, align: 'left' }); y += rh; }); gap(4); },
-    cases(b) { b.items.forEach((x) => { const dl = wrap(x.desc, CW - 20 * S, 8.4), tl = wrap(x.title, CW - 20 * S, 9.2, 700), h = (12 + tl.length * 13 + dl.length * 12 + 12) * S; need(h + 6 * S);
-      rr(L, y, CW, h, 8 * S, '#fff', '#E9ECF1'); let yy = y + 16 * S; tl.forEach((ln) => { txt(ln, R - 10 * S, yy, 9.2, { w: 700, color: CCOL[x.cls] }); yy += 13 * S; });
-      dl.forEach((ln) => { txt(ln, R - 10 * S, yy, 8.4, { color: '#334155' }); yy += 12 * S; }); txt(x.foot, R - 10 * S, yy, 7.4, { color: '#7F8999' }); y += h + 6 * S; }); },
-    cal(b) { const { yr, mo, n, off, r0, rows } = calRows(b), g = 3 * S, cw = (CW - g * 6) / 7, ch = 30 * S;
-      need(22 * S + 14 * S + rows * (ch + g)); txt(H.MN[mo - 1] + ' ' + yr, R, y + 12 * S, 10, { w: 700 }); y += 20 * S;
-      CALH.forEach((d, i) => txt(d, R - i * (cw + g) - cw / 2, y + 9 * S, 7.6, { color: '#7F8999', align: 'center' })); y += 14 * S;
-      for (let i = 1; i <= n; i++) { const pos = off + i - 1, row = Math.floor(pos / 7) - r0, col = pos % 7; if (row < 0 || row >= rows) continue;
-        const x = R - (col + 1) * cw - col * g, yy = y + row * (ch + g), d = b.map[b.month + '-' + String(i).padStart(2, '0')];
-        rr(x, yy, cw, ch, 5 * S, d ? KBG[d.k] || '#fff' : '#fff', '#E9ECF1'); txt(String(i), x + cw / 2, yy + 12 * S, 8.4, { w: 700, align: 'center', color: d ? '#0F1B33' : '#CBD5E1' });
-        if (d) txt(d.sym + (d.txt ? ' ' + d.txt : ''), x + cw / 2, yy + 24 * S, 7, { align: 'center', color: '#334155' }); }
-      y += rows * (ch + g) + 4 * S; },
-  };
-  const firstH = (b) => { if (!b) return 0; switch (b.t) { case 'cal': return (36 + calRows(b).rows * 33) * S; case 'table': return 52 * S; case 'cases': return 70 * S; case 'bars': return 50 * S; case 'boxes': return 60 * S; case 'sum': return 40 * S; default: return 24 * S; } };
-  return { fill, draw(B) { B.forEach((b, i) => { if (b.t === 'h2') need(34 * S + Math.min(firstH(B[i + 1]), BOT - M - 40 * S)); P[b.t] && P[b.t](b); }); fill.push((y - M) / (BOT - M)); return pages; }, finish(title) {
-    pages.forEach((p, i) => { const k = p.getContext('2d'); k.direction = 'rtl'; k.font = `400 ${7.5 * S}px ${PDF.FONT}`; k.fillStyle = '#7F8999'; k.textAlign = 'center'; k.fillText('حضوري · ' + title + ' · صفحة ' + (i + 1) + ' من ' + pages.length, W / 2, Hh - M / 2); });
-    return pages; } };
-}
-const toJpeg = (cv) => new Promise((res, rej) => cv.toBlob((b) => b ? b.arrayBuffer().then((x) => res(new Uint8Array(x))) : rej(new Error('تعذر تحويل الصفحة')), 'image/jpeg', 0.9));
-/** كاتب PDF بسيط: صفحة لكل صورة JPEG بمقاس A4 */
-async function pagesToPdf(canvases, title) {
-  const enc = new TextEncoder(), parts = [], offs = []; let len = 0;
-  const push = (x) => { const b = typeof x === 'string' ? enc.encode(x) : x; parts.push(b); len += b.length; };
-  const utf16 = (s) => 'FEFF' + Array.from(s).map((ch) => { const cp = ch.codePointAt(0); if (cp < 0x10000) return cp.toString(16).padStart(4, '0'); const v = cp - 0x10000; return ((v >> 10) + 0xD800).toString(16) + ((v & 0x3FF) + 0xDC00).toString(16); }).join('').toUpperCase();
-  push('%PDF-1.4\n'); push(new Uint8Array([37, 226, 227, 207, 211, 10]));
-  const n = canvases.length, kids = []; let id = 4; const imgs = [];
-  for (const cv of canvases) imgs.push({ jpg: await toJpeg(cv), w: cv.width, h: cv.height });
-  const obj = (num, body) => { offs[num] = len; push(num + ' 0 obj\n'); if (typeof body === 'string') push(body); else body.forEach(push); push('\nendobj\n'); };
-  obj(1, '<< /Type /Catalog /Pages 2 0 R >>');
-  imgs.forEach(() => { kids.push(id + ' 0 R'); id += 3; });
-  obj(2, `<< /Type /Pages /Kids [${kids.join(' ')}] /Count ${n} >>`);
-  obj(3, `<< /Title <${utf16(title)}> /Producer (Hudury) /CreationDate (D:${new Date().toISOString().replace(/[-:T]/g, '').slice(0, 14)}) >>`);
-  id = 4;
-  imgs.forEach((im) => { const pg = id, ct = id + 1, ix = id + 2, cs = `q ${PDF.W} 0 0 ${PDF.H} 0 0 cm /Im0 Do Q`;
-    obj(pg, `<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${PDF.W} ${PDF.H}] /Resources << /XObject << /Im0 ${ix} 0 R >> >> /Contents ${ct} 0 R >>`);
-    obj(ct, `<< /Length ${cs.length} >>\nstream\n${cs}\nendstream`);
-    obj(ix, [`<< /Type /XObject /Subtype /Image /Width ${im.w} /Height ${im.h} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${im.jpg.length} >>\nstream\n`, im.jpg, '\nendstream']);
-    id += 3; });
-  const xref = len, total = id; push(`xref\n0 ${total}\n0000000000 65535 f \n`);
-  for (let i = 1; i < total; i++) push(String(offs[i]).padStart(10, '0') + ' 00000 n \n');
-  push(`trailer\n<< /Size ${total} /Root 1 0 R /Info 3 0 R >>\nstartxref\n${xref}\n%%EOF\n`);
-  return new Blob(parts, { type: 'application/pdf' });
-}
-async function makePdf(R) {
-  if (document.fonts && document.fonts.ready) { try { await document.fonts.ready; } catch (e) { } }
-  const p = PdfPainter(); p.draw(R.blocks); const pages = p.finish(R.title);
-  const blob = await pagesToPdf(pages, R.title);
-  return new File([blob], R.name + '.pdf', { type: 'application/pdf' });
-}
-/* ---- عارض التقارير: معاينة + حفظ/مشاركة/طباعة PDF ---- */
+/* عارض التقارير داخل اللوحة — لا يعتمد على فتح نافذة جديدة */
 let RV = null;
-const IOS = () => /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-const canShareFile = (f) => { try { return !!(navigator.canShare && navigator.canShare({ files: [f] })); } catch (e) { return false; } };
-function openReport(R) {
-  RV = { R, file: null, err: null };
-  $('#rv-f').srcdoc = R.html; $('#rv-t').textContent = R.title; $('#rv').classList.add('on'); document.body.style.overflow = 'hidden';
-  rvState('جارٍ تجهيز ملف PDF…');
-  const mine = RV; // يُجهَّز الملف مسبقًا حتى تُستدعى المشاركة مباشرة من ضغطة المستخدم (شرط Safari)
-  makePdf(R).then((f) => { if (RV === mine) { RV.file = f; rvState(''); } }).catch((e) => { if (RV === mine) { RV.err = e; rvState('تعذر تجهيز PDF: ' + (e.message || e)); } });
+function openReport(html, name) {
+  name = (name || 'تقرير_حضوري') + '.html'; RV = { html, name };
+  const fr = $('#rv-f'); fr.srcdoc = html.replace('<div class="tb">', '<div class="tb" style="display:none">');
+  $('#rv-t').textContent = name.replace(/_/g, ' ').replace('.html', ''); $('#rv').classList.add('on'); document.body.style.overflow = 'hidden';
 }
-function rvState(msg) { const ready = RV && RV.file; ['#rv-p', '#rv-s', '#rv-o'].forEach((s) => { $(s).disabled = !ready; }); $('#rv-st').textContent = msg || (ready ? 'ملف PDF جاهز (' + Math.max(1, Math.round(RV.file.size / 1024)) + ' ك.ب)' : ''); }
-function closeReport() { $('#rv').classList.remove('on'); document.body.style.overflow = ''; $('#rv-f').srcdoc = '<p></p>'; RV = null; }
-async function sharePdf(file, text) {
-  if (canShareFile(file)) { try { await navigator.share(text ? { files: [file], text } : { files: [file] }); return 'shared'; } catch (e) { if (e && e.name === 'AbortError') return 'aborted'; } }
-  download(file, file.name); return 'downloaded';
+function closeReport() { $('#rv').classList.remove('on'); document.body.style.overflow = ''; $('#rv-f').srcdoc = '<p></p>'; }
+function rvPrint() {
+  try { const w = $('#rv-f').contentWindow; w.focus(); w.print(); }
+  catch (e) { toast('الطباعة غير متاحة في هذا العرض — استخدم «فتح في صفحة مستقلة»'); }
 }
-async function rvSave() { if (!RV || !RV.file) return; const how = IOS() ? await sharePdf(RV.file) : (download(RV.file, RV.file.name), 'downloaded'); if (how === 'shared') toast('اختر «حفظ في الملفات» لحفظ ملف PDF'); else if (how === 'downloaded') toast('نُزّل ملف PDF'); }
-async function rvShare() { if (!RV || !RV.file) return; const how = await sharePdf(RV.file); if (how === 'downloaded') toast('المشاركة غير مدعومة هنا — نُزّل ملف PDF'); }
-async function rvPrint() {
-  if (!RV || !RV.file) return;
-  if (IOS() || matchMedia('(pointer:coarse)').matches) { const how = await sharePdf(RV.file); if (how === 'shared') toast('اختر «طباعة» من قائمة المشاركة'); return; }
-  const url = URL.createObjectURL(RV.file), w = window.open(url, '_blank'); if (!w) { download(RV.file, RV.file.name); toast('افتح ملف PDF المنزّل واطبعه'); } setTimeout(() => URL.revokeObjectURL(url), 120000);
+function rvOpen() {
+  const url = URL.createObjectURL(new Blob([RV.html], { type: 'text/html' }));
+  const w = window.open(url, '_blank'); if (!w) { toast('هذا العرض يمنع فتح صفحة جديدة — استخدم «مشاركة» أو «تنزيل»'); } setTimeout(() => URL.revokeObjectURL(url), 60000);
+}
+async function rvShare() {
+  const f = new File([RV.html], RV.name, { type: 'text/html' });
+  if (navigator.canShare && navigator.canShare({ files: [f] })) { try { await navigator.share({ files: [f] }); return; } catch (e) { if (e && e.name === 'AbortError') return; } }
+  download(f, RV.name);
 }
 function download(blob, name) {
   try { const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; a.rel = 'noopener'; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 4000); return true; }
@@ -1680,27 +1504,25 @@ function download(blob, name) {
 }
 function shareFlow(key) {
   const e = EMP[key]; if (!e) return; const rep = reportEmp(key, range()), r = rep.r;
-  const msg = `السلام عليكم ${e.name}،\nملخص متابعة الانضباط للفترة ${pr(r)}:\n• نسبة الانضباط: ${pc1(rep.a.disc)}\n• الدوام المطلوب: ${fm(rep.a.req)} — المحتسب: ${fm(rep.a.att)}\n• الفاقد غير المبرر: ${fm(rep.a.loss)} (${rep.a.loss} د)${rep.sd.length ? ' في: ' + rep.sd.map((d) => H.dm(d.date)).join('، ') : ''}\n• الغياب: ${rep.a.absentDays} يوم — الانصراف التلقائي: ${rep.a.autoDays}\n• التأخر بعد 7:00: ${rep.a.lateDays} مرة — الخروج المبكر: ${rep.a.earlyDays} مرة\n• الاستئذان الشخصي المستخدم: ${fm(rep.b.used)} — المتبقي: ${fm(rep.b.remaining)}\nمرفق التقرير التفصيلي (PDF). أي حالة مذكورة فيه هي للمراجعة وليست جزاءً، ويسعدني تواصلك لتقديم إفادتك.\nقسم الإشراف التربوي`;
+  const msg = `السلام عليكم ${e.name}،\nملخص متابعة الانضباط للفترة ${pr(r)}:\n• نسبة الانضباط: ${pc1(rep.a.disc)}\n• الدوام المطلوب: ${fm(rep.a.req)} — المحتسب: ${fm(rep.a.att)}\n• الفاقد غير المبرر: ${fm(rep.a.loss)} (${rep.a.loss} د)${rep.sd.length ? ' في: ' + rep.sd.map((d) => H.dm(d.date)).join('، ') : ''}\n• الغياب: ${rep.a.absentDays} يوم — الانصراف التلقائي: ${rep.a.autoDays}\n• التأخر بعد 7:00: ${rep.a.lateDays} مرة — الخروج المبكر: ${rep.a.earlyDays} مرة\n• الاستئذان الشخصي المستخدم: ${fm(rep.b.used)} — المتبقي: ${fm(rep.b.remaining)}\nمرفق التقرير التفصيلي. أي حالة مذكورة فيه هي للمراجعة وليست جزاءً، ويسعدني تواصلك لتقديم إفادتك.\nقسم الإشراف التربوي`;
+  const fname = 'تقرير_' + e.name.replace(/\s+/g, '_') + '_' + r.from + '_' + r.to + '.html';
   modal('إعداد التقرير للمشاركة — ' + e.name, `<div class="warn">لن يُرسل أي شيء تلقائيًا. راجع التقرير والرسالة، ثم أكد، ثم اختر طريقة الإرسال بنفسك.</div>
   <div class="fm" style="margin-top:10px"><label>رقم الجوال من سجل الاتصال<select id="sh-ph">${DB.employees.filter((m) => m.phone).map((m) => `<option value="${esc(m.phone)}" ${m.key === key ? 'selected' : ''}>${esc(m.name + ' — ' + m.phone)}</option>`).join('')}<option value="" ${e.phone ? '' : 'selected'}>— رقم آخر —</option></select></label>
   <label>أو أدخل الرقم<input id="sh-in" inputmode="tel" placeholder="9665xxxxxxxx" value="${esc(e.phone || '')}"></label>
   <label class="full">نص الرسالة (قابل للتعديل)<textarea id="sh-msg" rows="9">${esc(msg)}</textarea></label></div>
   <div class="btns" style="margin-top:8px"><button class="btn s" id="sh-view">معاينة التقرير</button></div>
   <label style="display:flex;gap:8px;align-items:flex-start;margin:12px 0;font-size:14px"><input type="checkbox" id="sh-ok" style="width:22px;height:22px"> راجعت التقرير والرسالة، وأؤكد أنهما يخصان ${esc(e.name)} فقط ولا يتضمنان بيانات زملائه.</label>
-  <div class="btns"><a class="btn w" id="sh-wa" target="_blank" rel="noopener noreferrer" aria-disabled="true" style="opacity:.45;pointer-events:none">فتح واتساب بالرسالة</a><button class="btn" id="sh-file" disabled>مشاركة ملف PDF</button><button class="btn s" id="sh-dl" disabled>حفظ ملف PDF</button></div>
-  <p class="sub" id="sh-st" style="margin-top:8px">جارٍ تجهيز ملف PDF…</p>
-  <p class="sub">«فتح واتساب» يفتح محادثة الموظف ونصّ الرسالة جاهز، والإرسال يتم بضغطك أنت. «مشاركة ملف PDF» يفتح قائمة المشاركة لإرفاق الملف في واتساب أو حفظه في «الملفات».</p>`, (b) => {
-    let file = null;
+  <div class="btns"><a class="btn w" id="sh-wa" target="_blank" rel="noopener noreferrer" aria-disabled="true" style="opacity:.45;pointer-events:none">فتح واتساب بالرسالة</a><button class="btn" id="sh-file" disabled>مشاركة ملف التقرير</button><button class="btn s" id="sh-dl" disabled>تنزيل ملف التقرير</button></div>
+  <p class="sub" style="margin-top:8px">«فتح واتساب» يفتح محادثة الموظف ونصّ الرسالة جاهز، والإرسال يتم بضغطك أنت. لإرسال PDF: افتح «معاينة التقرير» ← حفظ PDF ← أرفقه في المحادثة.</p>`, (b) => {
     const ph = () => ($('#sh-in', b).value || $('#sh-ph', b).value || '').replace(/\D/g, '').replace(/^05/, '9665').replace(/^5/, '9665');
     $('#sh-ph', b).onchange = () => { $('#sh-in', b).value = $('#sh-ph', b).value; };
-    $('#sh-view', b).onclick = () => openReport(rep);
+    $('#sh-view', b).onclick = () => openReport(rep.html, fname.replace('.html', ''));
     const wa = $('#sh-wa', b), upd = () => { const on = $('#sh-ok', b).checked && ph().length >= 11; wa.href = on ? 'https://wa.me/' + ph() + '?text=' + encodeURIComponent($('#sh-msg', b).value) : '#'; wa.style.opacity = on ? 1 : .45; wa.style.pointerEvents = on ? 'auto' : 'none'; };
-    const en = () => { ['#sh-file', '#sh-dl'].forEach((s) => { $(s, b).disabled = !($('#sh-ok', b).checked && file); }); };
-    $('#sh-ok', b).onchange = (ev) => { en(); upd(); if (ev.target.checked && ph().length < 11) toast('أدخل رقم جوال صحيحًا لتفعيل واتساب'); };
+    $('#sh-ok', b).onchange = (ev) => { ['#sh-file', '#sh-dl'].forEach((s) => { $(s, b).disabled = !ev.target.checked; }); upd(); if (ev.target.checked && ph().length < 11) toast('أدخل رقم جوال صحيحًا لتفعيل واتساب'); };
     ['#sh-in', '#sh-msg'].forEach((s) => { $(s, b).oninput = upd; }); $('#sh-ph', b).addEventListener('change', upd);
-    makePdf(rep).then((f) => { file = f; $('#sh-st', b).textContent = 'ملف PDF جاهز: ' + f.name; en(); }).catch((x) => { $('#sh-st', b).textContent = 'تعذر تجهيز PDF: ' + (x.message || x); });
-    $('#sh-file', b).onclick = async () => { if (!file) return; const how = await sharePdf(file, $('#sh-msg', b).value); if (how === 'downloaded') toast('المشاركة غير مدعومة هنا — نُزّل ملف PDF'); };
-    $('#sh-dl', b).onclick = async () => { if (!file) return; const how = IOS() ? await sharePdf(file) : (download(file, file.name), 'downloaded'); if (how === 'shared') toast('اختر «حفظ في الملفات»'); };
+    const file = new File([rep.html], fname, { type: 'text/html' });
+    $('#sh-file', b).onclick = async () => { if (navigator.canShare && navigator.canShare({ files: [file] })) { try { await navigator.share({ files: [file], text: $('#sh-msg', b).value }); } catch (x) { } } else { download(file, fname); toast('المشاركة غير مدعومة هنا — نُزّل الملف'); } };
+    $('#sh-dl', b).onclick = () => download(file, fname);
   });
 }
 /* ---------- التنقل ---------- */
@@ -1736,9 +1558,9 @@ async function init() {
   $('#e-sel').onchange = () => { S.emp = $('#e-sel').value; S.calM = null; drawEmp(); };
   $('#al-notes').onclick = () => alertNotes();
   $('#cal-p').onclick = () => { S.calM = H.prevMonth(S.calM, 1); drawCal(); }; $('#cal-n').onclick = () => { S.calM = H.prevMonth(S.calM, -1); drawCal(); };
-  $('#e-pdf').onclick = () => openReport(reportEmp(S.emp, range())); $('#e-wa').onclick = () => shareFlow(S.emp);
-  $('#r-ind').onclick = () => openReport(reportEmp($('#r-emp').value, range())); $('#r-wa').onclick = () => shareFlow($('#r-emp').value);
-  $('#r-mgr').onclick = () => openReport(reportMgr($('#r-end').value));
+  $('#e-pdf').onclick = () => openReport(reportEmp(S.emp, range()).html, 'تقرير_' + empName(S.emp)); $('#e-wa').onclick = () => shareFlow(S.emp);
+  $('#r-ind').onclick = () => openReport(reportEmp($('#r-emp').value, range()).html, 'تقرير_' + empName($('#r-emp').value)); $('#r-wa').onclick = () => shareFlow($('#r-emp').value);
+  $('#r-mgr').onclick = () => openReport(reportMgr($('#r-end').value).html, 'تقرير_المدير_' + $('#r-end').value);
   $('#n-add').onclick = () => noteForm({ emp: $('#n-emp').value || (actEmps()[0] || {}).key, date: MAXD, type: NTYPES[0], status: 'جديدة' });
   $('#s-add').onclick = () => staffForm({ active: true });
   $('#h-add').onclick = () => { const f = $('#h-from').value, t = $('#h-to').value || f, n = $('#h-name').value.trim(); if (!f || !n) return toast('أدخل التاريخ والاسم'); DB.holidays.push({ from: f, to: t, name: n }); save(); refresh(); drawData(); toast('أُضيفت العطلة'); };
@@ -1749,7 +1571,7 @@ async function init() {
   $('#b-exp').onclick = backup;
   $('#b-imp').onchange = async (ev) => { const f = ev.target.files[0]; if (!f) return; try { const d = JSON.parse(await f.text()); if (!d || !d.punches || !d.employees) throw 0;
     if (!await ask(`استعادة النسخة «${f.name}»؟\nموظفون: ${d.employees.length} · بصمات: ${Object.keys(d.punches).length} · ملاحظات: ${(d.notes || []).length}\nستُحفظ النسخة الحالية أولًا.`)) return; snapshot('قبل الاستعادة من ملف'); DB = d; norm(); DB.settings.needBackup = false; save(); refresh(); drawData(); toast('تمت الاستعادة'); } catch (x) { toast('الملف ليس نسخة احتياطية صالحة'); } ev.target.value = ''; };
-  $('#rv-p').onclick = rvSave; $('#rv-s').onclick = rvShare; $('#rv-o').onclick = rvPrint; $('#rv-x').onclick = closeReport;
+  $('#rv-p').onclick = rvPrint; $('#rv-s').onclick = rvShare; $('#rv-o').onclick = rvOpen; $('#rv-x').onclick = closeReport;
   $('#m-x').onclick = closeModal; $('#modal').onclick = (e) => { if (e.target.id === 'modal') closeModal(); };
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { if ($('#rv').classList.contains('on')) closeReport(); else closeModal(); } });
   addEventListener('beforeunload', (e) => { if (STORE.mode === 'memory' && STORE.dirty) { e.preventDefault(); e.returnValue = ''; } });
