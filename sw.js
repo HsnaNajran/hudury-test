@@ -1,6 +1,6 @@
 // حضوري — عامل الخدمة. يعمل دون إنترنت بعد أول فتح، ولا يرسل أي بيانات إلى أي خادم.
 // لا يمس بيانات المستخدم (IndexedDB/localStorage)؛ يخزن ملفات التطبيق فقط.
-const VERSION = 'v6.0.1-dbc8a062', C = 'hudury-' + VERSION;
+const VERSION = 'v6.0.2-c1c7035f', C = 'hudury-' + VERSION;
 const FILES = ['./', './index.html', './manifest.webmanifest', './icons/icon-180.png', './icons/icon-192.png', './icons/icon-512.png', './icons/maskable-192.png', './icons/maskable-512.png', './icons/favicon-32.png'];
 self.addEventListener('install', (e) => {
   // cache:'reload' يتجاوز ذاكرة المتصفح المؤقتة فيُخزَّن الإصدار الجديد فعلًا

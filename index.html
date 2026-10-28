@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="robots" content="noindex,nofollow"><meta name="app-version" content="v6.0.1-dbc8a062"><meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex,nofollow"><meta name="app-version" content="v6.0.2-c1c7035f"><meta name="referrer" content="no-referrer">
 <title>حضوري | متابعة الانضباط الوظيفي</title>
 <style>
 :root{--bg:#F5F6F8;--card:#fff;--line:#E9ECF1;--tx:#0F1B33;--mu:#5B6577;--mu2:#7F8999;--navy:#0A1B3F;--navy2:#132A5C;--navy3:#1D3A78;--blue:#1D3A78;--gold:#C8A24A;--gold2:#E6CE8F;--gold3:#FBF7EC;--green:#1F7A4D;--orange:#9A6200;--red:#A83A33;--purple:#5B4A9A;--gray:#C9CFD9;--soft:#F5F6F8}
@@ -197,7 +197,7 @@ details summary{cursor:pointer;font-weight:600;min-height:32px}
 <aside class="side" aria-label="التنقل">
   <div class="logo"><i>ح</i><div><b>حضوري</b><small>متابعة الانضباط الوظيفي</small></div></div>
   <nav class="snav" id="tabs"></nav>
-  <div class="sfoot">الإدارة العامة للتعليم بمنطقة نجران<br>إدارة أداء التعليم · قسم الإشراف التربوي<br><span style="color:var(--gold2)">الإصدار v6.0.1-dbc8a062</span></div>
+  <div class="sfoot">الإدارة العامة للتعليم بمنطقة نجران<br>إدارة أداء التعليم · قسم الإشراف التربوي<br><span style="color:var(--gold2)">الإصدار v6.0.2-c1c7035f</span></div>
 </aside>
 <div class="shell">
 <header class="top"><div class="in">
@@ -316,7 +316,7 @@ details summary{cursor:pointer;font-weight:600;min-height:32px}
         <hr class="s"><div class="warn" id="test-zone"></div></div>
     </div>
   </section>
-  <p class="foot">الإصدار <span class="num">v6.0.1-dbc8a062</span> · الدوام 7:00–3:00 · المطلوب 420 دقيقة يوميًا · لا يُحتسب ما قبل 7:00 ولا ما بعد 3:00 · التأخير يبدأ بعد 8:00 · المساءلة بانتظار قرار المدير المباشر · الحساب بالدقائق ثم الساعات ثم النسبة ثم الأيام المكافئة (420 د = يوم) · لا جزاءات تلقائية</p>
+  <p class="foot">الإصدار <span class="num">v6.0.2-c1c7035f</span> · الدوام 7:00–3:00 · المطلوب 420 دقيقة يوميًا · لا يُحتسب ما قبل 7:00 ولا ما بعد 3:00 · التأخير يبدأ بعد 8:00 · المساءلة بانتظار قرار المدير المباشر · الحساب بالدقائق ثم الساعات ثم النسبة ثم الأيام المكافئة (420 د = يوم) · لا جزاءات تلقائية</p>
 </main>
 </div>
 <nav class="bnav" id="bnav"></nav>
@@ -816,6 +816,25 @@ const IDB = {
   get(k) { return new Promise((res) => { if (!IDB.db) return res(null); try { const q = IDB.db.transaction('kv').objectStore('kv').get(k); q.onsuccess = () => res(q.result == null ? null : q.result); q.onerror = () => res(null); } catch (e) { res(null); } }); },
   set(k, v) { return new Promise((res) => { if (!IDB.db) return res(false); try { const t = IDB.db.transaction('kv', 'readwrite'); t.objectStore('kv').put(v, k); t.oncomplete = () => res(true); t.onerror = t.onabort = () => res(false); } catch (e) { res(false); } }); },
 };
+/* مرفقات الشواهد: تُحفظ في قاعدة بيانات المتصفح على الجهاز فقط (لا تُرفع لأي خادم)، وتُضمَّن في النسخة الاحتياطية */
+const FILEC = {}; // id → { name, type, size, data (dataURL) }
+const attIds = () => Object.values(DB.decisions || {}).flatMap((d) => (d.files || []).map((f) => f.id));
+async function filesLoad() { for (const id of attIds()) { if (FILEC[id]) continue; const v = await IDB.get('file:' + id); if (v) FILEC[id] = v; } }
+function fileSave(id, rec) { FILEC[id] = rec; return STORE.idb ? IDB.set('file:' + id, rec) : Promise.resolve(false); }
+function fileDel(id) { delete FILEC[id]; try { if (IDB.db) IDB.db.transaction('kv', 'readwrite').objectStore('kv').delete('file:' + id); } catch (e) { } }
+const readURL = (blob) => new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(r.result); r.onerror = () => rej(r.error); r.readAsDataURL(blob); });
+/** تصغير الصورة (أقصى بُعد 1600 بكسل، JPEG) حتى لا يكبر حجم التطبيق والنسخة الاحتياطية */
+async function shrinkImage(file) {
+  const url = URL.createObjectURL(file);
+  try {
+    const img = await new Promise((res, rej) => { const i = new Image(); i.onload = () => res(i); i.onerror = rej; i.src = url; });
+    const k = Math.min(1, 1600 / Math.max(img.naturalWidth, img.naturalHeight)), w = Math.round(img.naturalWidth * k), h = Math.round(img.naturalHeight * k);
+    const cv = document.createElement('canvas'); cv.width = w; cv.height = h; const g = cv.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, w, h); g.drawImage(img, 0, 0, w, h);
+    return cv.toDataURL('image/jpeg', 0.72);
+  } finally { URL.revokeObjectURL(url); }
+}
+function dataToFile(rec) { const [h, b] = rec.data.split(','), bin = atob(b), u = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i); return new File([u], rec.name, { type: (h.match(/data:([^;]+)/) || [])[1] || rec.type }); }
+const kb = (n) => n < 1024 * 1024 ? Math.max(1, Math.round(n / 1024)) + ' ك.ب' : (n / 1048576).toFixed(1) + ' م.ب';
 async function storageInit() {
   STORE.idb = await IDB.open();
   STORE.ls = lsSet('hudury.test', '1');
@@ -873,7 +892,8 @@ function statusBar() {
   bar.innerHTML = h; $$('[data-bk]', bar).forEach((b) => { b.onclick = backup; });
 }
 async function backup() {
-  const name = 'نسخة_حضوري_' + today() + '.json', file = new File([JSON.stringify(DB)], name, { type: 'application/json' });
+  const att = {}; attIds().forEach((id) => { if (FILEC[id]) att[id] = FILEC[id]; });
+  const name = 'نسخة_حضوري_' + today() + '.json', file = new File([JSON.stringify(Object.keys(att).length ? { ...DB, attachments: att } : DB)], name, { type: 'application/json' });
   const mark = () => { DB.settings.lastBackup = new Date().toISOString(); DB.settings.needBackup = false; save(); if (S.view === 'data') drawData(); };
   if (navigator.canShare && navigator.canShare({ files: [file] }) && matchMedia('(pointer:coarse)').matches) {
     try { await navigator.share({ files: [file], title: 'نسخة احتياطية — حضوري' }); mark(); toast('اختر «حفظ في الملفات» لحفظ النسخة'); return; } catch (e) { if (e && e.name === 'AbortError') return; }
@@ -1086,7 +1106,9 @@ function caseText(c, forEmp) {
     default: return ['nv', '؟', nm + 'طلبات بانتظار الاعتماد أو التصنيف', `الأيام ${datesTxt(c.dates)}: لا تُعد مبررًا قبل اعتمادها.`];
   }
 }
-const footOf = (c) => ACC_T.includes(c.type) ? (c.done ? 'قرار المدير المباشر: ' + c.status : WAIT) : (c.done ? 'عولجت — ' + c.noteType : 'للمراجعة الإدارية — ليست جزاءً ولا حسمًا تلقائيًا');
+const nAtt = (c) => ((DB.decisions[c.key] || {}).files || []).length;
+const stOf = (c) => { const d = DB.decisions[c.key] || {}; return d.statement ? ' · مبرر الموظف: ' + (d.statement.length > 90 ? d.statement.slice(0, 90) + '…' : d.statement) : ''; };
+const footOf = (c) => ACC_T.includes(c.type) ? (c.done ? 'قرار المدير المباشر: ' + c.status + ((DB.decisions[c.key] || {}).decision === 'rejected' && !(DB.decisions[c.key] || {}).evidence && !nAtt(c) ? ' (لم يُقدَّم شاهد)' : '') : WAIT) + stOf(c) + (nAtt(c) ? ' · مرفقات الشاهد: ' + nAtt(c) : '') : (c.done ? 'عولجت — ' + c.noteType : 'للمراجعة الإدارية — ليست جزاءً ولا حسمًا تلقائيًا');
 function alertsHtml(box, cases, forEmp, limit) {
   if (!cases.length) { box.innerHTML = '<p class="empty">لا توجد حالات للمراجعة في هذه الفترة ✓</p>'; return; }
   const shown = cases.slice(0, limit || 99);
@@ -1132,21 +1154,61 @@ function caseForm(c) {
   modal('قرار المدير المباشر', `<div class="al ${c.done ? 'done' : 'amb'}" style="cursor:default"><div class="ic">${c.done ? '✓' : '!'}</div><div class="tx"><b>${esc(t)}</b><p>${esc(desc)}</p><em>${esc(footOf(c))}</em></div></div>
   <div class="fm" style="margin-top:12px"><label>القرار<select id="cq-d">${DECO.map(([k, l]) => `<option value="${k}" ${(dec.decision || 'pending') === k ? 'selected' : ''}>${esc(l)}</option>`).join('')}</select></label>
   ${day ? `<label>الدقائق المُلغاة عند قبول الشاهد (من ${day.unjustOrig})<input type="number" min="0" max="${day.unjustOrig}" id="cq-m" value="${DB.adjust[c.emp + '|' + c.date] ? DB.adjust[c.emp + '|' + c.date].minutes : day.unjustOrig}"></label>` : ''}
-  <label class="full">ملاحظات القرار<textarea id="cq-n" rows="2">${esc(dec.note || '')}</textarea></label><label class="full">الشواهد<input id="cq-e" value="${esc(dec.evidence || '')}" placeholder="مثل: تقرير عطل، خطاب تكليف، إفادة الموظف"></label></div>
-  <div class="btns" style="margin-top:10px"><button class="btn" id="cq-s">حفظ القرار</button><button class="btn s" id="cq-emp">لوحة الموظف</button></div>
+  <label class="full">مبرر الموظف (إفادته)<textarea id="cq-st" rows="2" placeholder="ما قدّمه الموظف لتبرير الحالة">${esc(dec.statement || '')}</textarea></label>
+  <label class="full">الشاهد (وصف مكتوب)<input id="cq-e" value="${esc(dec.evidence || '')}" placeholder="مثل: تقرير عطل جهاز البصمة، خطاب تكليف، موعد مستشفى"></label>
+  <label class="full">ملاحظات القرار<textarea id="cq-n" rows="2">${esc(dec.note || '')}</textarea></label></div>
+  <div class="note" style="margin-top:8px;font-size:13px">«قُبل الشاهد» يتطلب <b>مبرر الموظف</b> و<b>شاهدًا</b> (مرفقًا أو وصفًا مكتوبًا). بدون شاهد يُحسب على الموظف ويبقى الفاقد.</div>
+  <div style="margin-top:10px"><b style="font-size:14px">مرفقات الشاهد</b><div id="cq-att" style="margin-top:6px"></div>
+  <label class="btn s" style="margin-top:6px">📎 إرفاق شاهد (صورة أو PDF)<input type="file" id="cq-f" accept="image/*,application/pdf" multiple class="vh"></label>
+  <p class="sub" style="margin:4px 0 0">يُحفظ المرفق على هذا الجهاز فقط ويدخل في النسخة الاحتياطية، ولا يُرسل في تقارير الموظفين.${STORE.mode === 'memory' ? ' <b style="color:var(--red)">الحفظ غير متاح في هذا العرض.</b>' : ''}</p></div>
+  <div class="btns" style="margin-top:10px"><button class="btn" id="cq-s">حفظ القرار</button><button class="btn s" id="cq-no">لم يُقدَّم شاهد — يبقى الفاقد</button><button class="btn s" id="cq-emp">لوحة الموظف</button></div>
   ${dec.at ? `<p class="sub" style="margin-top:6px">آخر تسجيل: ${esc(H.dmy(dec.at))} — ${esc(dec.by || '')}</p>` : ''}
   ${L.length ? `<hr class="s"><h3 style="font-size:15px">${c.type === 'loss' ? 'أيام الفاقد في الشهر' : 'أيام الغياب'} — اضغط اليوم لتعديل فاقده</h3><div class="tw" id="cq-l"></div>` : ''}
   <p class="sub" style="margin-top:8px">تسجّل المسؤولة قرار المدير المباشر. لا يصدر النظام أي جزاء تلقائي.</p>`, (b) => {
     if (L.length) table($('#cq-l', b), [{ l: 'التاريخ', f: (d) => esc(d.day + ' ' + H.dmy(d.date)) }, { l: 'الفاقد الأصلي', f: (d) => esc(fm(d.unjustOrig)) }, { l: 'المعدّل', f: (d) => esc(fm(d.adjMin)) }, { l: 'الحالي', f: (d) => '<b style="color:var(--red)">' + esc(fm(d.unjust)) + '</b>' }, { l: 'الحالة', f: pill }], L, (d) => adjustForm(d, c.key));
     $('#cq-emp', b).onclick = () => { closeModal(); openEmp(c.emp); };
-    $('#cq-s', b).onclick = () => {
-      const v = $('#cq-d', b).value, note = $('#cq-n', b).value.trim(), ev = $('#cq-e', b).value.trim();
-      if (v === 'accepted' && day && !note && !ev) return toast('اكتب الشاهد أو ملاحظة القرار');
+    const draft = () => ({ v: $('#cq-d', b).value, n: $('#cq-n', b).value, e: $('#cq-e', b).value, st: $('#cq-st', b).value, m: $('#cq-m', b) ? $('#cq-m', b).value : null });
+    const reopen = (dr) => { caseForm(c); if (dr) { $('#cq-d').value = dr.v; $('#cq-n').value = dr.n; $('#cq-e').value = dr.e; $('#cq-st').value = dr.st; if (dr.m != null && $('#cq-m')) $('#cq-m').value = dr.m; } };
+    const drawAtt = () => { const L = (DB.decisions[c.key] || {}).files || [];
+      $('#cq-att', b).innerHTML = L.length ? L.map((f, i) => `<div class="drow" style="align-items:center;gap:8px">${FILEC[f.id] && /^image/.test(f.type) ? `<img src="${FILEC[f.id].data}" alt="" style="width:46px;height:46px;object-fit:cover;border-radius:8px;border:1px solid var(--line)">` : '<span style="font-size:26px">📄</span>'}
+        <span style="flex:1;min-width:0;overflow-wrap:anywhere">${esc(f.name)}<br><small style="color:var(--mu)">${esc(kb(f.size))} · ${esc(H.dmy(f.at))}${FILEC[f.id] ? '' : ' · غير موجود على هذا الجهاز'}</small></span>
+        <button class="btn s" data-av="${i}" style="min-height:36px;padding:4px 10px">عرض</button><button class="btn s" data-ad="${i}" style="min-height:36px;padding:4px 10px;color:var(--red)">حذف</button></div>`).join('') : '<p class="sub" style="margin:0">لا توجد مرفقات</p>';
+      $$('[data-av]', b).forEach((x) => { x.onclick = () => { const f = L[+x.dataset.av], r = FILEC[f.id]; if (!r) return toast('المرفق غير موجود على هذا الجهاز'); const dr = draft();
+        if (/^image/.test(r.type)) modal('الشاهد — ' + f.name, `<img src="${r.data}" alt="${esc(f.name)}" style="width:100%;border-radius:12px;border:1px solid var(--line)"><div class="btns" style="margin-top:10px"><button class="btn" id="av-b">رجوع للقرار</button><button class="btn s" id="av-s">مشاركة أو حفظ</button></div>`, (bb) => { $('#av-b', bb).onclick = () => reopen(dr); $('#av-s', bb).onclick = () => sharePdf(dataToFile(r)); });
+        else sharePdf(dataToFile(r)).then((how) => { if (how === 'downloaded') toast('نُزّل الملف'); }); }; });
+      $$('[data-ad]', b).forEach((x) => { x.onclick = async () => { const f = L[+x.dataset.ad], dr = draft(); if (!await ask('حذف المرفق «' + f.name + '»؟', 'حذف', true)) return reopen(dr);
+        snapshot('حذف مرفق شاهد'); DB.decisions[c.key].files = L.filter((y) => y !== f); fileDel(f.id); save(); refresh(); reopen(dr); toast('حُذف المرفق'); }; });
+    };
+    drawAtt();
+    $('#cq-f', b).onchange = async (ev) => {
+      const fs = Array.from(ev.target.files || []); ev.target.value = ''; if (!fs.length) return;
+      if (STORE.mode === 'memory') return toast('الحفظ غير متاح في هذا العرض — افتح التطبيق من الشاشة الرئيسية');
+      const d0 = DB.decisions[c.key] || (DB.decisions[c.key] = { decision: 'pending', note: '', evidence: '', type: c.type, emp: c.emp }); d0.files = d0.files || [];
+      let n = 0;
+      for (const f of fs) {
+        try {
+          let data, type = f.type || '';
+          if (/^image\//.test(type) || /\.(heic|jpe?g|png|webp)$/i.test(f.name)) { data = await shrinkImage(f); type = 'image/jpeg'; }
+          else if (type === 'application/pdf' || /\.pdf$/i.test(f.name)) { if (f.size > 5 * 1048576) { toast('ملف PDF أكبر من 5 م.ب — اختر ملفًا أصغر'); continue; } data = await readURL(f); type = 'application/pdf'; }
+          else { toast('الصيغة غير مدعومة — صورة أو PDF فقط'); continue; }
+          const id = uid(), name = /^image/.test(type) ? f.name.replace(/\.[^.]+$/, '') + '.jpg' : f.name, size = Math.round((data.length - data.indexOf(',') - 1) * 0.75);
+          await fileSave(id, { name, type, size, data }); d0.files.push({ id, name, type, size, at: today(), by: recorder() }); n++;
+        } catch (e) { toast('تعذرت قراءة الملف: ' + f.name); }
+      }
+      if (n) { DB.settings.needBackup = true; save(); drawAtt(); toast('أُرفق ' + n + ' ملف — تذكّر حفظ القرار'); }
+    };
+    const commit = (v, note, ev, st) => {
+      const files = (DB.decisions[c.key] || {}).files || [];
+      if (v === 'accepted' && !st) return toast('لا يُقبل الشاهد دون مبرر الموظف — اكتب إفادته');
+      if (v === 'accepted' && !ev && !files.length) return toast('لا يُقبل دون شاهد — أرفق الشاهد أو صفه كتابيًا. بدون شاهد يبقى الفاقد');
       snapshot('قرار مساءلة ' + empName(c.emp));
-      DB.decisions[c.key] = { decision: v, note, evidence: ev, at: today(), by: recorder(), type: c.type, emp: c.emp };
+      DB.decisions[c.key] = { decision: v, note, evidence: ev, statement: st, at: today(), by: recorder(), type: c.type, emp: c.emp, files };
       if (day) setAdjust(c.emp, c.date, v === 'accepted' ? +$('#cq-m', b).value || 0 : 0, note || ev, ev, c.key);
       save(); refresh(); closeModal(); toast('حُفظ القرار');
     };
+    $('#cq-s', b).onclick = () => commit($('#cq-d', b).value, $('#cq-n', b).value.trim(), $('#cq-e', b).value.trim(), $('#cq-st', b).value.trim());
+    $('#cq-no', b).onclick = async () => { if (!await ask('تسجيل «لم يُقبل الشاهد – يبقى الفاقد» لعدم تقديم شاهد؟\nيُحسب على الموظف ويبقى الفاقد كما هو.', 'تسجيل القرار')) return reopen(draft());
+      commit('rejected', $('#cq-n', b).value.trim() || 'لم يُقدَّم شاهد', $('#cq-e', b).value.trim(), $('#cq-st', b).value.trim()); };
   });
 }
 async function alertNotes() {
@@ -1561,7 +1623,7 @@ function drawData() {
   const used = JSON.stringify(DB).length + JSON.stringify(SNAPS).length;
   $('#bk-last').textContent = DB.settings.lastBackup ? 'آخر نسخة احتياطية: ' + new Date(DB.settings.lastBackup).toLocaleString('ar-SA-u-ca-gregory-nu-latn', { dateStyle: 'medium', timeStyle: 'short' }) : 'لم تُحفظ نسخة احتياطية بعد على هذا الجهاز.';
   const MODE = { idb: 'قاعدة بيانات المتصفح (IndexedDB) مع نسخة في التخزين المحلي', ls: 'التخزين المحلي للمتصفح (localStorage)', memory: 'ذاكرة مؤقتة فقط — الحفظ غير متاح في هذا العرض' };
-  $('#store-info').innerHTML = `<b>رقم الإصدار:</b> <span class="num">v6.0.1-dbc8a062</span>${typeof hudCheck === 'function' ? ' <button class="btn s" id="upd-now" style="min-height:34px;padding:4px 12px">التحقق من التحديث الآن</button>' : ''} (قواعد v6: التأخير بعد 8:00 · المساءلة عند أكثر من 7 تكرارات · الفاقد الشهري 7 ساعات · الغياب المتتالي 7 أيام · الاستئذان بقدر النقص)<br><b>طريقة الحفظ الحالية:</b> ${esc(MODE[STORE.mode])}${STORE.persist ? ' · محمية من المسح التلقائي' : ''}.<br><b>مكان الحفظ:</b> داخل هذا المتصفح على هذا الجهاز فقط. لا تُرفع أي بيانات إلى خادم أو خدمة خارجية، ولا يوجد رابط عام.<br>
+  $('#store-info').innerHTML = `<b>رقم الإصدار:</b> <span class="num">v6.0.2-c1c7035f</span>${typeof hudCheck === 'function' ? ' <button class="btn s" id="upd-now" style="min-height:34px;padding:4px 12px">التحقق من التحديث الآن</button>' : ''} (قواعد v6: التأخير بعد 8:00 · المساءلة عند أكثر من 7 تكرارات · الفاقد الشهري 7 ساعات · الغياب المتتالي 7 أيام · الاستئذان بقدر النقص)<br><b>طريقة الحفظ الحالية:</b> ${esc(MODE[STORE.mode])}${STORE.persist ? ' · محمية من المسح التلقائي' : ''}.<br><b>مكان الحفظ:</b> داخل هذا المتصفح على هذا الجهاز فقط. لا تُرفع أي بيانات إلى خادم أو خدمة خارجية، ولا يوجد رابط عام.<br>
   <b>الحجم الحالي:</b> ${N((used / 1024).toFixed(0) + ' ك.ب')} · ${Object.keys(DB.punches).length} بصمة · ${DB.entries.filter((e) => !e.deleted).length} استئذان/مهمة · ${DB.notes.length} ملاحظة.${saveOk ? '' : '<br><b style="color:#B91C1C">تعذّر الحفظ في المتصفح — نزّل نسخة احتياطية.</b>'}<br>
   <b>تنبيه:</b> مسح بيانات المتصفح أو استخدام نافذة خاصة أو متصفح آخر يعني عدم ظهور البيانات. على الآيفون: التطبيق المضاف للشاشة الرئيسية وSafari لكلٍّ منهما بيانات منفصلة. لذلك نزّل «نسخة احتياطية كاملة» بعد كل استيراد أسبوعي واحفظها في مجلد خاص (مثل iCloud أو ذاكرة خارجية).<br>
   <b>الاستعادة:</b> «استعادة من نسخة احتياطية» تعرض ملخص الملف وتطلب التأكيد، وتُحفظ النسخة الحالية قبلها.<br>
@@ -1961,7 +2023,7 @@ function prevPeriod(P) {
   const pm = H.prevMonth(P.month, 1), L = H.monthWeeks(pm).pop(); return { from: L.from, to: L.to, label: L.label + ' من ' + H.MN[+pm.slice(5) - 1] };
 }
 async function init() {
-  await storageInit(); await load(); recompute(); statusBar();
+  await storageInit(); await load(); await filesLoad(); recompute(); statusBar();
   if (typeof DecompressionStream === 'undefined') $('#imp-env').innerHTML = '<div class="warn" style="margin-top:8px">هذا المتصفح لا يدعم قراءة Excel مباشرة (يحتاج iOS 16.4+). يمكن استيراد CSV.</div>';
   $('#tabs').innerHTML = VIEWS.map(([k, l]) => `<button data-v="${k}">${esc(l)}</button>`).join('');
   $('#tabs').innerHTML = VIEWS.map(([k, l, ic]) => `<button data-v="${k}"><svg viewBox="0 0 24 24" class="ico">${ic}</svg>${esc(l)}</button>`).join('');
@@ -1994,7 +2056,7 @@ async function init() {
   $('#imp-file').onchange = (ev) => { const f = Array.from(ev.target.files || []); if (f.length) onImport(f); };
   $('#b-exp').onclick = backup;
   $('#b-imp').onchange = async (ev) => { const f = ev.target.files[0]; if (!f) return; try { const d = JSON.parse(await f.text()); if (!d || !d.punches || !d.employees) throw 0;
-    if (!await ask(`استعادة النسخة «${f.name}»؟\nموظفون: ${d.employees.length} · بصمات: ${Object.keys(d.punches).length} · ملاحظات: ${(d.notes || []).length}\nستُحفظ النسخة الحالية أولًا.`)) return; snapshot('قبل الاستعادة من ملف'); DB = d; norm(); DB.settings.needBackup = false; save(); refresh(); drawData(); toast('تمت الاستعادة'); } catch (x) { toast('الملف ليس نسخة احتياطية صالحة'); } ev.target.value = ''; };
+    if (!await ask(`استعادة النسخة «${f.name}»؟\nموظفون: ${d.employees.length} · بصمات: ${Object.keys(d.punches).length} · ملاحظات: ${(d.notes || []).length}${d.attachments ? ' · مرفقات شواهد: ' + Object.keys(d.attachments).length : ''}\nستُحفظ النسخة الحالية أولًا.`)) return; snapshot('قبل الاستعادة من ملف'); const at = d.attachments || {}; delete d.attachments; DB = d; norm(); for (const [id, v] of Object.entries(at)) await fileSave(id, v); DB.settings.needBackup = false; save(); refresh(); drawData(); toast('تمت الاستعادة'); } catch (x) { toast('الملف ليس نسخة احتياطية صالحة'); } ev.target.value = ''; };
   $('#rv-p').onclick = rvSave; $('#rv-s').onclick = rvShare; $('#rv-o').onclick = rvPrint; $('#rv-x').onclick = closeReport;
   $('#m-x').onclick = closeModal; $('#modal').onclick = (e) => { if (e.target.id === 'modal') closeModal(); };
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { if ($('#rv').classList.contains('on')) closeReport(); else closeModal(); } });
@@ -2022,8 +2084,8 @@ async function hudCheck(manual) {
   if (!manual && /[?&]u=\d/.test(location.search)) return; // بعد إعادة الضبط مباشرة: لا تكرار
   try {
     const r = await fetch('version.json?t=' + Date.now(), { cache: 'no-store' }); if (!r.ok) throw 0; const v = (await r.json()).v;
-    if (v && v !== 'v6.0.1-dbc8a062') { let k = ''; try { k = sessionStorage.getItem('hud-up'); } catch (e) {} if (k !== v || manual) { try { sessionStorage.setItem('hud-up', v); } catch (e) {} return hudReset(); } }
-    if (manual) toast('التطبيق على آخر إصدار (v6.0.1-dbc8a062)');
+    if (v && v !== 'v6.0.2-c1c7035f') { let k = ''; try { k = sessionStorage.getItem('hud-up'); } catch (e) {} if (k !== v || manual) { try { sessionStorage.setItem('hud-up', v); } catch (e) {} return hudReset(); } }
+    if (manual) toast('التطبيق على آخر إصدار (v6.0.2-c1c7035f)');
   } catch (e) { if (manual) toast('تعذر التحقق — تأكد من الاتصال بالإنترنت'); }
 }
 </script></body></html>
