@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="robots" content="noindex,nofollow"><meta name="app-version" content="v6.0.3-ac7cc365"><meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex,nofollow"><meta name="app-version" content="v6.0.4-488a7f98"><meta name="referrer" content="no-referrer">
 <title>حضوري | متابعة الانضباط الوظيفي</title>
 <style>
 :root{--bg:#F5F6F8;--card:#fff;--line:#E9ECF1;--tx:#0F1B33;--mu:#5B6577;--mu2:#7F8999;--navy:#0A1B3F;--navy2:#132A5C;--navy3:#1D3A78;--blue:#1D3A78;--gold:#C8A24A;--gold2:#E6CE8F;--gold3:#FBF7EC;--green:#1F7A4D;--orange:#9A6200;--red:#A83A33;--purple:#5B4A9A;--gray:#C9CFD9;--soft:#F5F6F8}
@@ -197,7 +197,7 @@ details summary{cursor:pointer;font-weight:600;min-height:32px}
 <aside class="side" aria-label="التنقل">
   <div class="logo"><i>ح</i><div><b>حضوري</b><small>متابعة الانضباط الوظيفي</small></div></div>
   <nav class="snav" id="tabs"></nav>
-  <div class="sfoot">الإدارة العامة للتعليم بمنطقة نجران<br>إدارة أداء التعليم · قسم الإشراف التربوي<br><span style="color:var(--gold2)">الإصدار v6.0.3-ac7cc365</span></div>
+  <div class="sfoot">الإدارة العامة للتعليم بمنطقة نجران<br>إدارة أداء التعليم · قسم الإشراف التربوي<br><span style="color:var(--gold2)">الإصدار v6.0.4-488a7f98</span></div>
 </aside>
 <div class="shell">
 <header class="top"><div class="in">
@@ -316,7 +316,7 @@ details summary{cursor:pointer;font-weight:600;min-height:32px}
         <hr class="s"><div class="warn" id="test-zone"></div></div>
     </div>
   </section>
-  <p class="foot">الإصدار <span class="num">v6.0.3-ac7cc365</span> · الدوام 7:00–3:00 · المطلوب 420 دقيقة يوميًا · لا يُحتسب ما قبل 7:00 ولا ما بعد 3:00 · التأخير يبدأ بعد 8:00 · المساءلة بانتظار قرار المدير المباشر · الحساب بالدقائق ثم الساعات ثم النسبة ثم الأيام المكافئة (420 د = يوم) · لا جزاءات تلقائية</p>
+  <p class="foot">الإصدار <span class="num">v6.0.4-488a7f98</span> · الدوام 7:00–3:00 · المطلوب 420 دقيقة يوميًا · لا يُحتسب ما قبل 7:00 ولا ما بعد 3:00 · التأخير يبدأ بعد 8:00 · المساءلة بانتظار قرار المدير المباشر · الحساب بالدقائق ثم الساعات ثم النسبة ثم الأيام المكافئة (420 د = يوم) · لا جزاءات تلقائية</p>
 </main>
 </div>
 <nav class="bnav" id="bnav"></nav>
@@ -1544,9 +1544,9 @@ function analyze() {
       if (seen.has(pk + '|بصمة')) st = 'dupfile'; else if (!old) st = 'new'; else if (PF.every((f) => (old[f] == null || old[f] === '' || old[f] === false ? '' : String(old[f])) === (nr[f] == null || nr[f] === '' || nr[f] === false ? '' : String(nr[f])))) st = 'dup'; else st = 'conflict';
       seen.add(pk + '|بصمة');
       items.push({ type: 'بصمة', pk, nr, old, st, rec, take: st === 'new' });
-      if (rec.perm > 0 || (/استئذان/.test(rec.hstatus) && rec.ci == null && rec.co == null) || /إجازة/.test(rec.hstatus)) {
+      if (rec.perm > 0 || (PERM_RE.test(rec.hstatus) && rec.ci == null && rec.co == null) || LEAVE_RE.test(rec.hstatus)) {
         const [kind, status] = (DB.settings.permImport || 'personal|معتمد').split('|');
-        const isLeave = /إجازة/.test(rec.hstatus), fullDay = rec.ci == null && rec.co == null && !rec.perm;
+        const isLeave = LEAVE_RE.test(rec.hstatus), fullDay = rec.ci == null && rec.co == null && !rec.perm;
         const ne = { emp: k.key, date: rec.date, kind: isLeave ? 'leave' : fullDay ? 'unclassified' : kind, status: isLeave ? 'معتمد' : fullDay ? 'قيد المراجعة' : status, minutes: fullDay ? 420 : rec.perm, start: null, end: null, ref: '', note: 'من ملف حضوري: ' + (rec.hstatus || 'استئذان'), src: res.file, impKey: pk + '|استئذان' };
         const oe = DB.entries.find((e) => !e.deleted && e.impKey === ne.impKey) || DB.entries.find((e) => !e.deleted && !e.impKey && e.emp === ne.emp && e.date === ne.date && (e.kind === ne.kind || ne.kind === 'unclassified') && H.dmin(e.start != null && e.end != null ? e.end - e.start : e.minutes) === H.dmin(ne.minutes));
         const oMin = oe ? (oe.start != null && oe.end != null ? oe.end - oe.start : H.dmin(oe.minutes)) : 0; const est = seen.has(ne.impKey) ? 'dupfile' : !oe ? 'new' : (oMin === H.dmin(ne.minutes) ? 'dup' : 'conflict'); seen.add(ne.impKey);
@@ -1625,7 +1625,7 @@ function drawData() {
   const used = JSON.stringify(DB).length + JSON.stringify(SNAPS).length;
   $('#bk-last').textContent = DB.settings.lastBackup ? 'آخر نسخة احتياطية: ' + new Date(DB.settings.lastBackup).toLocaleString('ar-SA-u-ca-gregory-nu-latn', { dateStyle: 'medium', timeStyle: 'short' }) : 'لم تُحفظ نسخة احتياطية بعد على هذا الجهاز.';
   const MODE = { idb: 'قاعدة بيانات المتصفح (IndexedDB) مع نسخة في التخزين المحلي', ls: 'التخزين المحلي للمتصفح (localStorage)', memory: 'ذاكرة مؤقتة فقط — الحفظ غير متاح في هذا العرض' };
-  $('#store-info').innerHTML = `<b>رقم الإصدار:</b> <span class="num">v6.0.3-ac7cc365</span>${typeof hudCheck === 'function' ? ' <button class="btn s" id="upd-now" style="min-height:34px;padding:4px 12px">التحقق من التحديث الآن</button>' : ''} (قواعد v6: التأخير بعد 8:00 · المساءلة عند أكثر من 7 تكرارات · الفاقد الشهري 7 ساعات · الغياب المتتالي 7 أيام · الاستئذان بقدر النقص)<br><b>طريقة الحفظ الحالية:</b> ${esc(MODE[STORE.mode])}${STORE.persist ? ' · محمية من المسح التلقائي' : ''}.<br><b>مكان الحفظ:</b> داخل هذا المتصفح على هذا الجهاز فقط. لا تُرفع أي بيانات إلى خادم أو خدمة خارجية، ولا يوجد رابط عام.<br>
+  $('#store-info').innerHTML = `<b>رقم الإصدار:</b> <span class="num">v6.0.4-488a7f98</span>${typeof hudCheck === 'function' ? ' <button class="btn s" id="upd-now" style="min-height:34px;padding:4px 12px">التحقق من التحديث الآن</button>' : ''} (قواعد v6: التأخير بعد 8:00 · المساءلة عند أكثر من 7 تكرارات · الفاقد الشهري 7 ساعات · الغياب المتتالي 7 أيام · الاستئذان بقدر النقص)<br><b>طريقة الحفظ الحالية:</b> ${esc(MODE[STORE.mode])}${STORE.persist ? ' · محمية من المسح التلقائي' : ''}.<br><b>مكان الحفظ:</b> داخل هذا المتصفح على هذا الجهاز فقط. لا تُرفع أي بيانات إلى خادم أو خدمة خارجية، ولا يوجد رابط عام.<br>
   <b>الحجم الحالي:</b> ${N((used / 1024).toFixed(0) + ' ك.ب')} · ${Object.keys(DB.punches).length} بصمة · ${DB.entries.filter((e) => !e.deleted).length} استئذان/مهمة · ${DB.notes.length} ملاحظة.${saveOk ? '' : '<br><b style="color:#B91C1C">تعذّر الحفظ في المتصفح — نزّل نسخة احتياطية.</b>'}<br>
   <b>تنبيه:</b> مسح بيانات المتصفح أو استخدام نافذة خاصة أو متصفح آخر يعني عدم ظهور البيانات. على الآيفون: التطبيق المضاف للشاشة الرئيسية وSafari لكلٍّ منهما بيانات منفصلة. لذلك نزّل «نسخة احتياطية كاملة» بعد كل استيراد أسبوعي واحفظها في مجلد خاص (مثل iCloud أو ذاكرة خارجية).<br>
   <b>الاستعادة:</b> «استعادة من نسخة احتياطية» تعرض ملخص الملف وتطلب التأكيد، وتُحفظ النسخة الحالية قبلها.<br>
@@ -1677,10 +1677,37 @@ const prI = (r) => iso(H.dmy(r.from)) + ' – ' + iso(H.dmy(r.to));
 function clampR(r) { const ds = DAYS.filter((d) => inR(d, r) && d.kind !== 'off' && d.kind !== 'holiday').map((d) => d.date).sort(); return ds.length ? { from: ds[0] < r.from ? r.from : ds[0], to: ds[ds.length - 1] } : r; }
 const RULES = 'الدوام 7:00–3:00 · المطلوب 420 د يوميًا · لا يُحتسب ما قبل 7:00 ولا ما بعد 3:00 · التأخير يبدأ بعد 8:00 مستقلًا عن الفاقد · الخروج المبكر = الانصراف قبل إكمال 7 ساعات · لا بد من بصمتي حضور وانصراف ومكانهما، والبصمة الناقصة فاقد يوم معلّق · الانصراف التلقائي 210 د والباقي فاقد حتى قرار المدير · الاستئذان الشخصي 10 س شهريًا يُخصم بقدر النقص فقط · المهام والتدريب لا تُخصم · الغياب بالأيام المتتالية والعطلة بين يومي غياب تُحسب غيابًا · المساءلة: فاقد شهري 7 ساعات، غياب متتالٍ 7 أيام، تأخير أو خروج مبكر أكثر من 7 مرات، تجاوز رصيد الاستئذان — بانتظار قرار المدير المباشر · لا يتضمن التقرير أي جزاء أو حسم تلقائي.';
 const LRI = '⁦', PDI = '⁩', iso = (x) => LRI + x + PDI; // عزل الأرقام والمعادلات داخل النص العربي
+const LEAVE_RE = /[اإأآ]جاز[ةه]/, PERM_RE = /[اإأ]?ست[ئي]ذان/; // حالات نظام حضوري تُكتب أحيانًا «اجازه» دون همزة وبالهاء
 const tm = (m) => H.hhmm(m) || '—';
 /* ---- بناء الكتل ---- */
 const workDaysIn = (D) => new Set(D.filter((d) => d.kind !== 'off' && d.kind !== 'holiday').map((d) => d.date)).size;
 /** حالات المراجعة في التقرير: تُعرض بما يقع داخل الفترة فقط، مع الإشارة إلى إجمالي الشهر عند الحاجة */
+const hrs = (m) => (Math.round(m / 6) / 10).toFixed(1);
+/** ملخص الموظفين بأعمدة التقرير الأسبوعي: الفترة / منذ بداية الشهر */
+function sumTable(per, r, D, E) {
+  const m0 = r.to.slice(0, 7) + '-01', mr = { from: m0 < r.from ? m0 : r.from, to: r.to };
+  const DM = DAYS.filter((d) => inR(d, mr));
+  const pm = (p, m, f) => iso(f(p) + ' / ' + f(m));
+  const rows = per.map((p) => { const am = H.agg(DM.filter((d) => d.emp === p.e.key)), a = p.a;
+    return [p.e.name, pm(a, am, (x) => x.absTotal), pm(a, am, (x) => x.lateDays), pm(a, am, (x) => x.earlyDays), pm(a, am, (x) => x.autoDays), pm(a, am, (x) => x.locDays),
+      { s: pm(a, am, (x) => hrs(x.loss)), cls: am.loss >= H.C.ACC_LOSS ? 'r' : '' }, { s: hrs(p.b.used), cls: p.b.over ? 'r' : '' }, { s: pc1(am.disc), cls: am.disc != null && am.disc < 90 ? 'r' : '' }]; });
+  const a = H.agg(D), am = H.agg(DM.filter((d) => E.some((e) => e.key === d.emp)));
+  return { t: 'table', small: true, cols: [{ l: 'الموظف', w: 1.6 }, { l: 'غياب', w: .7 }, { l: 'تأخير', w: .7 }, { l: 'خروج مبكر', w: .8 }, { l: 'انصراف تلقائي', w: .8 }, { l: 'مكان البصمة', w: .8 }, { l: 'الفاقد (س)', w: 1.1 }, { l: 'استئذان (س)', w: .8 }, { l: 'الانضباط', w: .9 }],
+    rows, foot: ['الإجمالي', pm(a, am, (x) => x.absTotal), pm(a, am, (x) => x.lateDays), pm(a, am, (x) => x.earlyDays), pm(a, am, (x) => x.autoDays), pm(a, am, (x) => x.locDays), { s: pm(a, am, (x) => hrs(x.loss)), cls: 'r' }, '—', pc1(am.disc)] };
+}
+/** حضور الفريق يومًا بيوم — للفترات القصيرة (أسبوع) فقط */
+function teamGrid(D, r, E) {
+  const dates = [...new Set(D.filter((d) => d.kind !== 'off' && d.kind !== 'holiday').map((d) => d.date))].sort();
+  if (!dates.length || dates.length > 7) return [];
+  const st = (d) => { if (!d) return '—'; const ci = d.punch && d.punch.ci != null, co = d.punch && d.punch.co != null, t = ci || co ? ' ' + iso(ci && co ? tm(d.punch.ci) + '–' + tm(d.punch.co) : tm(ci ? d.punch.ci : d.punch.co)) : '';
+    if (d.kind === 'absent') return { s: 'غياب', cls: 'r' }; if (d.kind === 'leave') return 'إجازة'; if (d.kind === 'invalid') return { s: 'للمراجعة' + t, cls: 'o' };
+    if (d.auto) return { s: 'انصراف تلقائي' + t, cls: 'o' }; if (d.missing) return { s: 'بصمة ناقصة' + t, cls: 'o' };
+    const x = []; if (d.lateNet) x.push('تأخير ' + iso(d.lateNet) + ' د'); if (d.earlyNet) x.push('خروج ' + iso(d.earlyNet) + ' د');
+    return x.length ? { s: x.join(' · ') + t, cls: d.unjust > 0 ? 'r' : '' } : 'منتظم' + t; };
+  return [{ t: 'h2', text: 'حضور الفريق يومًا بيوم' }, { t: 'p', small: true, text: 'الحالة ووقت الحضور والانصراف لكل موظف.' },
+    { t: 'table', small: true, cols: [{ l: 'الموظف', w: 1.3 }, ...dates.map((dt) => ({ l: (D.find((d) => d.date === dt) || {}).day + ' ' + H.dm(dt), w: 1.2 }))],
+      rows: E.map((e) => [e.name, ...dates.map((dt) => st(D.find((d) => d.emp === e.key && d.date === dt)))]) }];
+}
 function reportCases(cases, forEmp, r, D) {
   const inr = (x) => x >= r.from && x <= r.to, items = [];
   cases.forEach((c) => {
@@ -1772,10 +1799,12 @@ function mgrBlocks(P) {
     { t: 'h2', text: 'ملخص تنفيذي' }, { t: 'sum', text: exec },
     { t: 'h2', text: 'توزيع ساعات الدوام المطلوبة' }, { t: 'bars', items: it.map(([l, v, c]) => ({ l, w: 100 * v / mi, c, v: fm(v) })) },
     { t: 'h2', text: 'مقارنة الانضباط بين الموظفين' }, { t: 'bars', items: per.filter((p) => p.a.disc != null).sort((x, y) => y.a.disc - x.a.disc).map((p) => ({ l: p.e.name, w: Math.max(3, (p.a.disc - 78) / 22 * 100), c: p.a.disc >= 98 ? '#0A1B3F' : p.a.disc >= 90 ? '#6476A0' : '#A83A33', v: pc1(p.a.disc) })) },
-    { t: 'h2', text: 'مقارنة الموظفين' },
-    { t: 'table', small: true, cols: [{ l: 'الموظف', w: 1.6 }, { l: 'الانضباط', w: 1 }, { l: 'المحتسب', w: 1.2 }, { l: 'المبرر', w: 1 }, { l: 'الفاقد غير المبرر', w: 1.2 }, { l: 'يوم مكافئ', w: .8 }, { l: 'السابقة', w: 1 }, { l: 'الغياب', w: .6 }, { l: 'تأخير', w: .6 }, { l: 'خروج', w: .6 }, { l: 'تلقائي', w: .6 }, { l: 'الاستئذان', w: 1.1 }],
-      rows: per.map((p) => [p.e.name, pc1(p.a.disc), fm(p.a.att), fm(p.a.covPL + p.a.covML), { s: fm(p.a.loss), cls: p.a.loss >= H.C.ACC_LOSS ? 'r' : '' }, eqd(p.a.loss), fm(p.ap.loss), String(p.a.absTotal), String(p.a.lateDays), String(p.a.earlyDays), String(p.a.autoDays), fm(p.b.used) + (p.b.over ? ' تجاوز' : '')]),
-      foot: ['الإجمالي', pc1(a.disc), fm(a.att), fm(a.covPL + a.covML), { s: fm(a.loss), cls: 'r' }, eqd(a.loss), fm(ap.loss), String(a.absTotal), String(a.lateDays), String(a.earlyDays), String(a.autoDays), ''] },
+    { t: 'h2', text: 'ملخص الموظفين — كل خانة: الفترة / منذ بداية ' + MNm(r.to.slice(0, 7)) },
+    { t: 'p', small: true, text: 'الفاقد بالساعات دون أيام الغياب · الاستئذان الشخصي المخصوم للشهر حتى ' + H.dm(r.to) + ' · الانضباط منذ بداية الشهر' },
+    sumTable(per, r, D, E),
+    { t: 'h2', text: 'الاستئذان الشخصي — شهر ' + MNm(r.to.slice(0, 7)) + ' حتى ' + H.dm(r.to) + ' (بالساعات · الحد 10 ساعات)' },
+    { t: 'bars', items: per.slice().sort((x, y) => y.b.used - x.b.used).map((p) => ({ l: p.e.name, w: 100 * Math.min(p.b.used, 720) / 720, c: p.b.used > 600 ? '#A83A33' : p.b.used >= 480 ? '#C8A24A' : '#1D3A78', v: hrs(p.b.used) + ' س' + (p.b.used > 600 ? ' · تجاوز' : p.b.used >= 480 ? ' · قارب الحد' : '') })) },
+    ...teamGrid(D, r, E),
     { t: 'h2', text: 'الفاقد غير المبرر لكل موظف (الحد الشهري للمراجعة 7 ساعات لكل موظف)' },
     { t: 'bars', items: per.slice().sort((x, y) => y.a.loss - x.a.loss).map((p) => ({ l: p.e.name, w: 100 * p.a.loss / mxl, c: p.a.loss >= H.C.ACC_LOSS ? '#A83A33' : '#1D3A78', v: fm(p.a.loss) })) },
     { t: 'h2', text: 'الموقف من حدود المساءلة — منذ بداية ' + MNm(r.to.slice(0, 7)) + ' حتى ' + H.dm(r.to) },
@@ -2086,8 +2115,8 @@ async function hudCheck(manual) {
   if (!manual && /[?&]u=\d/.test(location.search)) return; // بعد إعادة الضبط مباشرة: لا تكرار
   try {
     const r = await fetch('version.json?t=' + Date.now(), { cache: 'no-store' }); if (!r.ok) throw 0; const v = (await r.json()).v;
-    if (v && v !== 'v6.0.3-ac7cc365') { let k = ''; try { k = sessionStorage.getItem('hud-up'); } catch (e) {} if (k !== v || manual) { try { sessionStorage.setItem('hud-up', v); } catch (e) {} return hudReset(); } }
-    if (manual) toast('التطبيق على آخر إصدار (v6.0.3-ac7cc365)');
+    if (v && v !== 'v6.0.4-488a7f98') { let k = ''; try { k = sessionStorage.getItem('hud-up'); } catch (e) {} if (k !== v || manual) { try { sessionStorage.setItem('hud-up', v); } catch (e) {} return hudReset(); } }
+    if (manual) toast('التطبيق على آخر إصدار (v6.0.4-488a7f98)');
   } catch (e) { if (manual) toast('تعذر التحقق — تأكد من الاتصال بالإنترنت'); }
 }
 </script></body></html>
