@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="robots" content="noindex,nofollow"><meta name="app-version" content="v6.0.4-488a7f98"><meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex,nofollow"><meta name="app-version" content="v6.0.5-d8228119"><meta name="referrer" content="no-referrer">
 <title>حضوري | متابعة الانضباط الوظيفي</title>
 <style>
 :root{--bg:#F5F6F8;--card:#fff;--line:#E9ECF1;--tx:#0F1B33;--mu:#5B6577;--mu2:#7F8999;--navy:#0A1B3F;--navy2:#132A5C;--navy3:#1D3A78;--blue:#1D3A78;--gold:#C8A24A;--gold2:#E6CE8F;--gold3:#FBF7EC;--green:#1F7A4D;--orange:#9A6200;--red:#A83A33;--purple:#5B4A9A;--gray:#C9CFD9;--soft:#F5F6F8}
@@ -197,7 +197,7 @@ details summary{cursor:pointer;font-weight:600;min-height:32px}
 <aside class="side" aria-label="التنقل">
   <div class="logo"><i>ح</i><div><b>حضوري</b><small>متابعة الانضباط الوظيفي</small></div></div>
   <nav class="snav" id="tabs"></nav>
-  <div class="sfoot">الإدارة العامة للتعليم بمنطقة نجران<br>إدارة أداء التعليم · قسم الإشراف التربوي<br><span style="color:var(--gold2)">الإصدار v6.0.4-488a7f98</span></div>
+  <div class="sfoot">الإدارة العامة للتعليم بمنطقة نجران<br>إدارة أداء التعليم · قسم الإشراف التربوي<br><span style="color:var(--gold2)">الإصدار v6.0.5-d8228119</span></div>
 </aside>
 <div class="shell">
 <header class="top"><div class="in">
@@ -316,7 +316,7 @@ details summary{cursor:pointer;font-weight:600;min-height:32px}
         <hr class="s"><div class="warn" id="test-zone"></div></div>
     </div>
   </section>
-  <p class="foot">الإصدار <span class="num">v6.0.4-488a7f98</span> · الدوام 7:00–3:00 · المطلوب 420 دقيقة يوميًا · لا يُحتسب ما قبل 7:00 ولا ما بعد 3:00 · التأخير يبدأ بعد 8:00 · المساءلة بانتظار قرار المدير المباشر · الحساب بالدقائق ثم الساعات ثم النسبة ثم الأيام المكافئة (420 د = يوم) · لا جزاءات تلقائية</p>
+  <p class="foot">الإصدار <span class="num">v6.0.5-d8228119</span> · الدوام 7:00–3:00 · المطلوب 420 دقيقة يوميًا · لا يُحتسب ما قبل 7:00 ولا ما بعد 3:00 · التأخير يبدأ بعد 8:00 · المساءلة بانتظار قرار المدير المباشر · الحساب بالدقائق ثم الساعات ثم النسبة ثم الأيام المكافئة (420 د = يوم) · لا جزاءات تلقائية</p>
 </main>
 </div>
 <nav class="bnav" id="bnav"></nav>
@@ -340,8 +340,8 @@ function params(date, st) {
 }
 const DN = ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
 const MN = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'];
-const KIND = { personal: 'استئذان شخصي', mission: 'مهمة عمل رسمية', training: 'دورة تدريبية', meeting: 'اجتماع أو لقاء عمل', offsite: 'مهمة خارج مقر العمل', leave: 'إجازة معتمدة', unclassified: 'بانتظار التصنيف والمراجعة' };
-const WORK_KINDS = ['mission', 'training', 'meeting', 'offsite'];
+const KIND = { personal: 'استئذان شخصي', mission: 'مهمة عمل رسمية', training: 'دورة تدريبية', meeting: 'اجتماع أو لقاء عمل', offsite: 'مهمة خارج مقر العمل', leave: 'إجازة معتمدة', syserr: 'خلل في النظام', other: 'أخرى', unclassified: 'بانتظار التصنيف والمراجعة' };
+const WORK_KINDS = ['mission', 'training', 'meeting', 'offsite', 'syserr', 'other'];
 const STATUS = ['مطلوب', 'معتمد', 'مرفوض', 'قيد المراجعة'];
 const AR_DIGITS = /[٠-٩]/g;
 
@@ -488,13 +488,14 @@ function computeDay(emp, date, punch, entries, ovr, holiday, K, adj) {
   if (adj && +adj.minutes > 0 && d.unjust > 0) { d.adjMin = Math.min(d.unjust, Math.round(+adj.minutes)); d.unjust -= d.adjMin; d.adj = adj; d.flags.push('عُدّل الفاقد بقرار المدير المباشر: ' + fm(d.adjMin) + (adj.reason ? ' — ' + adj.reason : '')); if (d.earlyNet) d.earlyNet = Math.min(d.earlyNet, d.unjust); }
   if (d.adjMin && d.unjust === 0) { d.kind = 'ok'; d.label = 'عُدّل بقرار المدير'; if (d.auto || d.missing) d.review = false; return d; }
   if (missing && d.unjust > 0) { d.kind = 'missing'; d.label = missing; return d; }
+  const mk = [...new Set(appr.filter((x) => WORK_KINDS.includes(x.kind)).map((x) => x.kind))], mLab = mk.length === 1 && mk[0] === 'syserr' ? 'مبرر بخلل في النظام' : mk.length === 1 && mk[0] === 'other' ? 'مبرر — أخرى' : null;
   if (noPunch) {
     if (d.adjMin) { d.kind = 'short'; d.label = 'غياب عُدّل جزئيًا بقرار المدير'; }
     else if (d.unjust > 0) { d.kind = 'absent'; d.label = d.covM || d.covP ? 'غياب مغطى جزئيًا' : 'غياب'; }
-    else { d.kind = d.covM ? 'mission' : 'perm'; d.label = d.covM ? 'مهمة عمل طوال اليوم' : 'استئذان طوال اليوم'; }
+    else { d.kind = d.covM ? 'mission' : 'perm'; d.label = d.covM ? (mLab || 'مهمة عمل طوال اليوم') : 'استئذان طوال اليوم'; }
   } else if (d.auto) { d.kind = 'auto'; d.label = 'انصراف تلقائي'; }
   else if (d.unjust > 0) { d.kind = 'short'; d.label = 'نقص ' + fm(d.unjust); }
-  else if (d.covM) { d.kind = 'mission'; d.label = 'مهمة / تدريب'; }
+  else if (d.covM) { d.kind = 'mission'; d.label = mLab || 'مهمة / تدريب'; }
   else if (d.covP) { d.kind = 'perm'; d.label = 'استئذان معتمد'; }
   else { d.kind = 'ok'; d.label = d.flags.length ? 'منتظم' : 'دوام مكتمل'; }
   if (d.review && d.kind === 'ok') d.label = 'منتظم — يوجد طلب للمراجعة';
@@ -1353,10 +1354,11 @@ function entryForm(e) {
   <label>أو المدة بالدقائق<input type="number" min="0" id="ef-m" value="${esc(e.minutes || '')}"></label>
   <label>حالة الاعتماد<select id="ef-st">${H.STATUS.map((s) => `<option ${s === e.status ? 'selected' : ''}>${s}</option>`).join('')}</select></label>
   <label>رقم المرجع أو الشاهد<input id="ef-ref" value="${esc(e.ref || '')}"></label><label class="full">ملاحظة<input id="ef-note" value="${esc(e.note || '')}"></label></div>
-  <p class="sub" style="margin-top:8px">الاستئذان الشخصي فقط يُخصم من الرصيد وبعد اعتماده. المهام والتدريب والاجتماعات تُبرر الوقت ولا تُخصم.</p>
+  <p class="sub" style="margin-top:8px">الاستئذان الشخصي فقط يُخصم من الرصيد وبعد اعتماده. المهام والتدريب والاجتماعات و«خلل في النظام» و«أخرى» تُبرر الوقت بعد اعتمادها ولا تُخصم. تصنيف «أخرى» يتطلب كتابة السبب في الملاحظة.</p>
   <div class="btns"><button class="btn" id="ef-save">حفظ</button>${isNew ? '' : '<button class="btn r" id="ef-del">حذف</button>'}</div>`, (b) => {
     $('#ef-save', b).onclick = () => {
       const date = $('#ef-date', b).value; if (!date) return toast('اختر التاريخ');
+      if ($('#ef-kind', b).value === 'other' && !$('#ef-note', b).value.trim()) return toast('اكتب السبب في خانة الملاحظة لتصنيف «أخرى»');
       const st = H.tmin($('#ef-s', b).value), en = H.tmin($('#ef-e', b).value);
       if ((st == null) !== (en == null) || (st != null && en <= st)) return toast('تحقق من وقتي البداية والنهاية');
       const o = Object.assign(e, { emp: $('#ef-emp', b).value, kind: $('#ef-kind', b).value, date, to: $('#ef-to', b).value || null, start: st, end: en, minutes: +$('#ef-m', b).value || null, status: $('#ef-st', b).value, ref: $('#ef-ref', b).value, note: $('#ef-note', b).value, src: e.src || 'إدخال يدوي' });
@@ -1625,7 +1627,7 @@ function drawData() {
   const used = JSON.stringify(DB).length + JSON.stringify(SNAPS).length;
   $('#bk-last').textContent = DB.settings.lastBackup ? 'آخر نسخة احتياطية: ' + new Date(DB.settings.lastBackup).toLocaleString('ar-SA-u-ca-gregory-nu-latn', { dateStyle: 'medium', timeStyle: 'short' }) : 'لم تُحفظ نسخة احتياطية بعد على هذا الجهاز.';
   const MODE = { idb: 'قاعدة بيانات المتصفح (IndexedDB) مع نسخة في التخزين المحلي', ls: 'التخزين المحلي للمتصفح (localStorage)', memory: 'ذاكرة مؤقتة فقط — الحفظ غير متاح في هذا العرض' };
-  $('#store-info').innerHTML = `<b>رقم الإصدار:</b> <span class="num">v6.0.4-488a7f98</span>${typeof hudCheck === 'function' ? ' <button class="btn s" id="upd-now" style="min-height:34px;padding:4px 12px">التحقق من التحديث الآن</button>' : ''} (قواعد v6: التأخير بعد 8:00 · المساءلة عند أكثر من 7 تكرارات · الفاقد الشهري 7 ساعات · الغياب المتتالي 7 أيام · الاستئذان بقدر النقص)<br><b>طريقة الحفظ الحالية:</b> ${esc(MODE[STORE.mode])}${STORE.persist ? ' · محمية من المسح التلقائي' : ''}.<br><b>مكان الحفظ:</b> داخل هذا المتصفح على هذا الجهاز فقط. لا تُرفع أي بيانات إلى خادم أو خدمة خارجية، ولا يوجد رابط عام.<br>
+  $('#store-info').innerHTML = `<b>رقم الإصدار:</b> <span class="num">v6.0.5-d8228119</span>${typeof hudCheck === 'function' ? ' <button class="btn s" id="upd-now" style="min-height:34px;padding:4px 12px">التحقق من التحديث الآن</button>' : ''} (قواعد v6: التأخير بعد 8:00 · المساءلة عند أكثر من 7 تكرارات · الفاقد الشهري 7 ساعات · الغياب المتتالي 7 أيام · الاستئذان بقدر النقص)<br><b>طريقة الحفظ الحالية:</b> ${esc(MODE[STORE.mode])}${STORE.persist ? ' · محمية من المسح التلقائي' : ''}.<br><b>مكان الحفظ:</b> داخل هذا المتصفح على هذا الجهاز فقط. لا تُرفع أي بيانات إلى خادم أو خدمة خارجية، ولا يوجد رابط عام.<br>
   <b>الحجم الحالي:</b> ${N((used / 1024).toFixed(0) + ' ك.ب')} · ${Object.keys(DB.punches).length} بصمة · ${DB.entries.filter((e) => !e.deleted).length} استئذان/مهمة · ${DB.notes.length} ملاحظة.${saveOk ? '' : '<br><b style="color:#B91C1C">تعذّر الحفظ في المتصفح — نزّل نسخة احتياطية.</b>'}<br>
   <b>تنبيه:</b> مسح بيانات المتصفح أو استخدام نافذة خاصة أو متصفح آخر يعني عدم ظهور البيانات. على الآيفون: التطبيق المضاف للشاشة الرئيسية وSafari لكلٍّ منهما بيانات منفصلة. لذلك نزّل «نسخة احتياطية كاملة» بعد كل استيراد أسبوعي واحفظها في مجلد خاص (مثل iCloud أو ذاكرة خارجية).<br>
   <b>الاستعادة:</b> «استعادة من نسخة احتياطية» تعرض ملخص الملف وتطلب التأكيد، وتُحفظ النسخة الحالية قبلها.<br>
@@ -2115,8 +2117,8 @@ async function hudCheck(manual) {
   if (!manual && /[?&]u=\d/.test(location.search)) return; // بعد إعادة الضبط مباشرة: لا تكرار
   try {
     const r = await fetch('version.json?t=' + Date.now(), { cache: 'no-store' }); if (!r.ok) throw 0; const v = (await r.json()).v;
-    if (v && v !== 'v6.0.4-488a7f98') { let k = ''; try { k = sessionStorage.getItem('hud-up'); } catch (e) {} if (k !== v || manual) { try { sessionStorage.setItem('hud-up', v); } catch (e) {} return hudReset(); } }
-    if (manual) toast('التطبيق على آخر إصدار (v6.0.4-488a7f98)');
+    if (v && v !== 'v6.0.5-d8228119') { let k = ''; try { k = sessionStorage.getItem('hud-up'); } catch (e) {} if (k !== v || manual) { try { sessionStorage.setItem('hud-up', v); } catch (e) {} return hudReset(); } }
+    if (manual) toast('التطبيق على آخر إصدار (v6.0.5-d8228119)');
   } catch (e) { if (manual) toast('تعذر التحقق — تأكد من الاتصال بالإنترنت'); }
 }
 </script></body></html>
