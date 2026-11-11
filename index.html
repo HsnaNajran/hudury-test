@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="robots" content="noindex,nofollow"><meta name="app-version" content="v6.0.5-cf671967"><meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex,nofollow"><meta name="app-version" content="v6.0.5-62b87376"><meta name="referrer" content="no-referrer">
 <title>حضوري | متابعة الانضباط الوظيفي</title>
 <style>
 :root{--bg:#F5F6F8;--card:#fff;--line:#E9ECF1;--tx:#0F1B33;--mu:#5B6577;--mu2:#7F8999;--navy:#0A1B3F;--navy2:#132A5C;--navy3:#1D3A78;--blue:#1D3A78;--gold:#C8A24A;--gold2:#E6CE8F;--gold3:#FBF7EC;--green:#1F7A4D;--orange:#9A6200;--red:#A83A33;--purple:#5B4A9A;--gray:#C9CFD9;--soft:#F5F6F8}
@@ -161,6 +161,7 @@ html{-webkit-tap-highlight-color:transparent}button,a,label,.rt tbody tr,svg [da
 .bnav{display:none}
 .ico{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .foot{color:var(--mu2);font-size:12px;text-align:center;margin:22px 0 0}
+.foot.credit{font-size:13px;font-weight:700;color:var(--gold2,#B8892E)}
 .empty{color:var(--mu2);font-size:13.5px;padding:18px;text-align:center}
 hr.s{border:0;border-top:1px solid var(--line);margin:14px 0}
 details summary{cursor:pointer;font-weight:600;min-height:32px}
@@ -197,7 +198,7 @@ details summary{cursor:pointer;font-weight:600;min-height:32px}
 <aside class="side" aria-label="التنقل">
   <div class="logo"><i>ح</i><div><b>حضوري</b><small>متابعة الانضباط الوظيفي</small></div></div>
   <nav class="snav" id="tabs"></nav>
-  <div class="sfoot">الإدارة العامة للتعليم بمنطقة نجران<br>إدارة أداء التعليم · قسم الإشراف التربوي<br><span style="color:var(--gold2)">الإصدار v6.0.5-cf671967</span></div>
+  <div class="sfoot">الإدارة العامة للتعليم بمنطقة نجران<br>إدارة أداء التعليم · قسم الإشراف التربوي<br><span style="color:var(--gold2)">الإصدار v6.0.5-62b87376</span></div>
 </aside>
 <div class="shell">
 <header class="top"><div class="in">
@@ -296,6 +297,14 @@ details summary{cursor:pointer;font-weight:600;min-height:32px}
         <hr class="s"><div class="btns"><button class="btn" id="b-exp">حفظ نسخة احتياطية كاملة</button><label class="btn s">استعادة من نسخة احتياطية<input type="file" id="b-imp" accept=".json,application/json" class="vh"></label></div>
         <div class="warn" style="margin-top:10px"><b>تنبيه:</b> بيانات كل جهاز مستقلة ولا تتزامن تلقائيًا بين الجوال والكمبيوتر. لنقلها: «حفظ نسخة احتياطية» في جهاز، ثم «استعادة» في الآخر. على الآيفون تظهر قائمة المشاركة؛ اختر «حفظ في الملفات».</div>
         <p class="sub" id="bk-last" style="margin-top:8px"></p></div>
+      <div class="card c12"><h3>دليل الاستخدام المختصر</h3><div class="note">
+        <b>1. الاستيراد:</b> صدّر ملف الحضور من نظام حضوري، ثم من «التقارير» اختر الملف واضغط تأكيد الاستيراد.<br>
+        <b>2. المراجعة:</b> من «المتابعة» صنّف الحالات (مهمة رسمية، دورة، اجتماع، إجازة معتمدة، خلل في النظام، أخرى) — الحالات المبررة تُستبعد من الفاقد.<br>
+        <b>3. المساءلة:</b> من «المساءلة» سجّل مبرر الموظف والشاهد وقرار المدير المباشر. اللوحة تنبّه فقط ولا تفرض جزاءً تلقائيًا.<br>
+        <b>4. التقارير:</b> اختر الفترة ثم «تقرير المدير» أو «التقرير الفردي» — الفردي يحتوي بيانات الموظف المحدد فقط.<br>
+        <b>5. النسخ الاحتياطي:</b> بعد كل استيراد أسبوعي اضغط «حفظ نسخة احتياطية كاملة» واحفظ الملف في مجلد خاص.<br>
+        <b>6. الفتح:</b> افتح اللوحة دائمًا من أيقونة «حضوري» على الشاشة الرئيسية، لا من رابط في واتساب أو المتصفح.
+        <p class="sub" style="margin-top:8px"><b>تصميم وتطوير: حسنة علي الشهري</b> — قسم الإشراف التربوي، إدارة أداء التعليم، الإدارة العامة للتعليم بمنطقة نجران.</p></div></div>
       <div class="card c6"><h3>أين تُحفظ البيانات؟</h3><div class="note" id="store-info"></div></div>
       <div class="card c6"><h3>سجل الموظفين وأرقام التواصل</h3><p class="sub">سجل اتصال خاص بك لإرسال التقارير الفردية</p><div class="tw" id="t-staff"></div><div class="btns" style="margin-top:10px"><button class="btn s" id="s-add">إضافة موظف</button></div></div>
       <div class="card c6"><h3>العطلات الرسمية والاستثناءات</h3><p class="sub">تُستبعد من أيام العمل المطلوبة (الجمعة والسبت مستبعدان تلقائيًا)</p><div class="tw" id="t-hol"></div>
@@ -316,7 +325,8 @@ details summary{cursor:pointer;font-weight:600;min-height:32px}
         <hr class="s"><div class="warn" id="test-zone"></div></div>
     </div>
   </section>
-  <p class="foot">الإصدار <span class="num">v6.0.5-cf671967</span> · الدوام 7:00–3:00 · المطلوب 420 دقيقة يوميًا · لا يُحتسب ما قبل 7:00 ولا ما بعد 3:00 · التأخير يبدأ بعد 8:00 · المساءلة بانتظار قرار المدير المباشر · الحساب بالدقائق ثم الساعات ثم النسبة ثم الأيام المكافئة (420 د = يوم) · لا جزاءات تلقائية</p>
+  <p class="foot credit">تصميم وتطوير: حسنة علي الشهري</p>
+  <p class="foot" style="margin-top:6px">الإصدار <span class="num">v6.0.5-62b87376</span> · الدوام 7:00–3:00 · المطلوب 420 دقيقة يوميًا · لا يُحتسب ما قبل 7:00 ولا ما بعد 3:00 · التأخير يبدأ بعد 8:00 · المساءلة بانتظار قرار المدير المباشر · الحساب بالدقائق ثم الساعات ثم النسبة ثم الأيام المكافئة (420 د = يوم) · لا جزاءات تلقائية</p>
 </main>
 </div>
 <nav class="bnav" id="bnav"></nav>
@@ -1627,7 +1637,7 @@ function drawData() {
   const used = JSON.stringify(DB).length + JSON.stringify(SNAPS).length;
   $('#bk-last').textContent = DB.settings.lastBackup ? 'آخر نسخة احتياطية: ' + new Date(DB.settings.lastBackup).toLocaleString('ar-SA-u-ca-gregory-nu-latn', { dateStyle: 'medium', timeStyle: 'short' }) : 'لم تُحفظ نسخة احتياطية بعد على هذا الجهاز.';
   const MODE = { idb: 'قاعدة بيانات المتصفح (IndexedDB) مع نسخة في التخزين المحلي', ls: 'التخزين المحلي للمتصفح (localStorage)', memory: 'ذاكرة مؤقتة فقط — الحفظ غير متاح في هذا العرض' };
-  $('#store-info').innerHTML = `<b>رقم الإصدار:</b> <span class="num">v6.0.5-cf671967</span>${typeof hudCheck === 'function' ? ' <button class="btn s" id="upd-now" style="min-height:34px;padding:4px 12px">التحقق من التحديث الآن</button>' : ''} (قواعد v6: التأخير بعد 8:00 · المساءلة عند أكثر من 7 تكرارات · الفاقد الشهري 7 ساعات · الغياب المتتالي 7 أيام · الاستئذان بقدر النقص)<br><b>طريقة الحفظ الحالية:</b> ${esc(MODE[STORE.mode])}${STORE.persist ? ' · محمية من المسح التلقائي' : ''}.<br><b>مكان الحفظ:</b> داخل هذا المتصفح على هذا الجهاز فقط. لا تُرفع أي بيانات إلى خادم أو خدمة خارجية، ولا يوجد رابط عام.<br>
+  $('#store-info').innerHTML = `<b>تصميم وتطوير: حسنة علي الشهري</b><br><b>رقم الإصدار:</b> <span class="num">v6.0.5-62b87376</span>${typeof hudCheck === 'function' ? ' <button class="btn s" id="upd-now" style="min-height:34px;padding:4px 12px">التحقق من التحديث الآن</button>' : ''} (قواعد v6: التأخير بعد 8:00 · المساءلة عند أكثر من 7 تكرارات · الفاقد الشهري 7 ساعات · الغياب المتتالي 7 أيام · الاستئذان بقدر النقص)<br><b>طريقة الحفظ الحالية:</b> ${esc(MODE[STORE.mode])}${STORE.persist ? ' · محمية من المسح التلقائي' : ''}.<br><b>مكان الحفظ:</b> داخل هذا المتصفح على هذا الجهاز فقط. لا تُرفع أي بيانات إلى خادم أو خدمة خارجية، ولا يوجد رابط عام.<br>
   <b>الحجم الحالي:</b> ${N((used / 1024).toFixed(0) + ' ك.ب')} · ${Object.keys(DB.punches).length} بصمة · ${DB.entries.filter((e) => !e.deleted).length} استئذان/مهمة · ${DB.notes.length} ملاحظة.${saveOk ? '' : '<br><b style="color:#B91C1C">تعذّر الحفظ في المتصفح — نزّل نسخة احتياطية.</b>'}<br>
   <b>تنبيه:</b> مسح بيانات المتصفح أو استخدام نافذة خاصة أو متصفح آخر يعني عدم ظهور البيانات. على الآيفون: التطبيق المضاف للشاشة الرئيسية وSafari لكلٍّ منهما بيانات منفصلة. لذلك نزّل «نسخة احتياطية كاملة» بعد كل استيراد أسبوعي واحفظها في مجلد خاص (مثل iCloud أو ذاكرة خارجية).<br>
   <b>الاستعادة:</b> «استعادة من نسخة احتياطية» تعرض ملخص الملف وتطلب التأكيد، وتُحفظ النسخة الحالية قبلها.<br>
@@ -1845,7 +1855,7 @@ function blocksToHtml(B, title) {
         h += '</div>'; break; }
     }
   });
-  return `<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>${esc(title)}</title><style>${RCSS}</style></head><body>${h}</div></body></html>`;
+  return `<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>${esc(title)}</title><style>${RCSS}</style></head><body>${h}<p style="text-align:center;color:#7F8999;font-size:11px;margin:18px 0 6px">صادر من لوحة حضوري · تصميم وتطوير: حسنة علي الشهري</p></div></body></html>`;
 }
 const CALH = ['أحد', 'اثن', 'ثلا', 'أرب', 'خمي', 'جمع', 'سبت'];
 function reportEmp(key, r0, P) { const R = empBlocks(key, r0, P); R.html = blocksToHtml(R.blocks, R.title); return R; }
@@ -1926,7 +1936,7 @@ function PdfPainter() {
   };
   const firstH = (b) => { if (!b) return 0; switch (b.t) { case 'cal': return (36 + calRows(b).rows * 33) * S; case 'table': return 52 * S; case 'cases': return 70 * S; case 'bars': return 50 * S; case 'boxes': return 60 * S; case 'sum': return 40 * S; default: return 24 * S; } };
   return { fill, draw(B) { B.forEach((b, i) => { if (b.t === 'h2') need(34 * S + Math.min(firstH(B[i + 1]), BOT - M - 40 * S)); P[b.t] && P[b.t](b); }); fill.push((y - M) / (BOT - M)); return pages; }, finish(title) {
-    pages.forEach((p, i) => { const k = p.getContext('2d'); k.direction = 'rtl'; k.font = `400 ${7.5 * S}px ${PDF.FONT}`; k.fillStyle = '#7F8999'; k.textAlign = 'center'; k.fillText('حضوري · ' + title + ' · صفحة ' + (i + 1) + ' من ' + pages.length, W / 2, Hh - M / 2); });
+    pages.forEach((p, i) => { const k = p.getContext('2d'); k.direction = 'rtl'; k.font = `400 ${7.5 * S}px ${PDF.FONT}`; k.fillStyle = '#7F8999'; k.textAlign = 'center'; k.fillText('حضوري · ' + title + ' · صفحة ' + (i + 1) + ' من ' + pages.length + ' · تصميم وتطوير: حسنة علي الشهري', W / 2, Hh - M / 2); });
     return pages; } };
 }
 const toJpeg = (cv) => new Promise((res, rej) => cv.toBlob((b) => b ? b.arrayBuffer().then((x) => res(new Uint8Array(x))) : rej(new Error('تعذر تحويل الصفحة')), 'image/jpeg', 0.9));
@@ -2117,8 +2127,8 @@ async function hudCheck(manual) {
   if (!manual && /[?&]u=\d/.test(location.search)) return; // بعد إعادة الضبط مباشرة: لا تكرار
   try {
     const r = await fetch('version.json?t=' + Date.now(), { cache: 'no-store' }); if (!r.ok) throw 0; const v = (await r.json()).v;
-    if (v && v !== 'v6.0.5-cf671967') { let k = ''; try { k = sessionStorage.getItem('hud-up'); } catch (e) {} if (k !== v || manual) { try { sessionStorage.setItem('hud-up', v); } catch (e) {} return hudReset(); } }
-    if (manual) toast('التطبيق على آخر إصدار (v6.0.5-cf671967)');
+    if (v && v !== 'v6.0.5-62b87376') { let k = ''; try { k = sessionStorage.getItem('hud-up'); } catch (e) {} if (k !== v || manual) { try { sessionStorage.setItem('hud-up', v); } catch (e) {} return hudReset(); } }
+    if (manual) toast('التطبيق على آخر إصدار (v6.0.5-62b87376)');
   } catch (e) { if (manual) toast('تعذر التحقق — تأكد من الاتصال بالإنترنت'); }
 }
 </script></body></html>
